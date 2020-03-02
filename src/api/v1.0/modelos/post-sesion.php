@@ -24,17 +24,6 @@ if (isset($_POST['nombre_de_usuario']) && isset($_POST['contraseña'])){
         $http_code = 401;
     }
 
-/*
-
-    if ($_POST['nombre_de_usuario'] == $nombre_de_usuario && $_POST['contraseña'] == $contraseña){
-        session_start();
-        $_SESSION['registrado'] = 'ok';
-
-        $http_code = 200;
-    }else{
-        $http_code = 401;
-    }
-*/
 }else{
     $http_code = 400;
 }
