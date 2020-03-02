@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Inicio de sesión</title>
 </head>
 <body>
+
+<form method="post" onsubmit="enviar(event)" id="formKey">
+    <label for="nombre_de_usuario">User: </label>
+    <input type="text" id="nombre_de_usuario" name="nombre de usuario" required>
+    <label for="contraseña">Key: </label>
+    <input type="text" id="contraseña" name="contraseña" required>
+    <button type="submit">Enviar</button>
+</form>
+
+<script>
+    function enviar(evento) {
+        evento.preventDefault();
+        fetch('api/v1.0/sesion', {
+            method : 'post',
+            body : new FormData(document.getElementById('formKey'))
+        }).then(function (respuesta) {
+            if (respuesta.status == 200){
+                location.href = './app';
+            }else{
+
+            }
+        })
+    }
+</script>
 
 </body>
 </html>
