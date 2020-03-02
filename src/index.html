@@ -1,37 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio de sesión</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="css/login.css">
+
 </head>
 <body>
+    <form class="login" onsubmit="enviar(event)" id="login" method="POST">
+        <h1>Iniciar Sesión</h1>
+        <h2 id="errorLogin"></h2>
+        <input type="text" name="nombre_de_usuario" placeholder="Usuario" required>
+        <input type="password" name="contraseña" placeholder="Contraseña" required>
+        <input type="submit" name="" value="INICIAR SESIÓN">
+    </form>
 
-<form method="post" onsubmit="enviar(event)" id="formKey">
-    <label for="nombre_de_usuario">User: </label>
-    <input type="text" id="nombre_de_usuario" name="nombre_de_usuario" required>
-    <label for="contraseña">Key: </label>
-    <input type="text" id="contraseña" name="contraseña" required>
-    <button type="submit">Enviar</button>
-</form>
+    <div id="textoAncla">
+        <h1>TU CAMPO MÁS INTELIGENTE QUE NUNCA</h1>
+    </div>
 
-<script>
-    function enviar(evento) {
-        evento.preventDefault();
-        fetch('api/v1.0/sesion', {
-            method : 'post',
-            body : new FormData(document.getElementById('formKey'))
-        }).then(function (respuesta) {
-            if (respuesta.status == 200){
-                /*return respuesta.text().then(function (t) {
-                    console.log(t);
-                });*/
-                location.href = './app';
-            }else{
-                
-            }
-        })
-    }
-</script>
+    <script src="js/login.js"></script>
 
 </body>
 </html>
