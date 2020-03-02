@@ -17,6 +17,7 @@ if (isset($_POST['nombre_de_usuario']) && isset($_POST['contraseña'])){
 
     if ($row['nombre'] == $nombre_de_usuario && $row['contraseña'] == $contraseña){
         session_start();
+        $_SESSION['nombre'] = $nombre_de_usuario;
         $_SESSION['registrado'] = 'ok';
 
         $http_code = 200;
