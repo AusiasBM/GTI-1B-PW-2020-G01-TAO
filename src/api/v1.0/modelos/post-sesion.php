@@ -7,7 +7,7 @@ if (isset($_POST['nombre_de_usuario']) && isset($_POST['contraseña'])){
     $nombre_de_usuario = $_POST['nombre_de_usuario'];
     $contraseña = $_POST['contraseña'];
 
-    $sql = "SELECT nombre, contraseña FROM usuarios where nombre = \"$nombre_de_usuario\" and contraseña = \"$contraseña\"";
+    $sql = "SELECT nombre, contraseña, rol FROM usuarios where nombre = \"$nombre_de_usuario\" and contraseña = \"$contraseña\"";
 
     $res = mysqli_query($conexion, $sql);
 
@@ -17,6 +17,8 @@ if (isset($_POST['nombre_de_usuario']) && isset($_POST['contraseña'])){
 
     if ($row['nombre'] == $nombre_de_usuario && $row['contraseña'] == $contraseña){
         session_start();
+        $_SESSION['nombre'] = $nombre_de_usuario;
+        $_SESSION['rol'] = $row['rol'];
         $_SESSION['registrado'] = 'ok';
 
         $http_code = 200;

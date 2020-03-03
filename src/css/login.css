@@ -17,6 +17,7 @@ body{
     background: #0F2027;  /* fallback for old browsers */
     font-family: "Helvetica Neue";
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -24,7 +25,7 @@ body{
 .login{
     width: 400px;
     height: 300px;
-    padding: 50px;
+    padding: 40px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -32,6 +33,16 @@ body{
     justify-content: center;
     position: relative;
     background: white;
+}
+
+section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Título del login */
@@ -43,8 +54,8 @@ body{
 
 .login h2{
     color: #820053;
-    text-transform: uppercase
-    font-size: 10px;
+    text-transform: uppercase;
+    font-size: 5px;
 }
 
 .login input[type = "text"],.login input[type = "password"]{
@@ -102,12 +113,11 @@ body{
 #textoAncla{
     width: 400px;
     height: 300px;
-    margin: 0 50px;
+    margin: 0 20px;
     color: white;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    font-size: 25px;
+    font-size: 35px;
 }
 
 @media only screen and (max-width: 740px) {
