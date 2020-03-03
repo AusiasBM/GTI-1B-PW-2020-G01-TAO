@@ -4,21 +4,40 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-    <form class="login" onsubmit="enviar(event)" id="login" method="POST">
-        <h1>Iniciar Sesión</h1>
-        <h2 id="errorLogin"></h2>
-        <input type="text" name="nombre_de_usuario" placeholder="Usuario" required>
-        <input type="password" name="contraseña" placeholder="Contraseña" required>
-        <input type="submit" name="" value="INICIAR SESIÓN">
-    </form>
-
-    <div id="textoAncla">
-        <h1>TU CAMPO MÁS INTELIGENTE QUE NUNCA</h1>
-    </div>
-
-    <script src="js/login.js"></script>
+    <section>
+        <form class="login" onsubmit="enviar(event)" id="login" method="POST">
+            <h1>Iniciar Sesión</h1>
+            <h2 id="errorLogin"></h2>
+            <input type="text" name="nombre_de_usuario" placeholder="Usuario" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <input type="submit" name="" value="INICIAR SESIÓN">
+        </form>
+    
+        <div id="textoAncla">
+            <h1>TU CAMPO MÁS INTELIGENTE QUE NUNCA</h1>
+        </div>
+    
+        <script src="js/login.js"></script>
+    </section>
+ 
+    <footer>
+        <div>
+            <p>¿PREGUNTAS? Llama al 902 543 685</p>
+        </div>
+        <div>
+            <p>&copy;2020 TAO Grupo1 | Todos los derechos reservados</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+            </ul>
+        </nav>
+    </footer>
 
 </body>
 </html>
