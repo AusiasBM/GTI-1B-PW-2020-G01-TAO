@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GTI | TAO - Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <header>
+        <img src="img/logoGTI.svg" alt="Grado en Tecnologías Interactivas">
+        <div class="menu-sesion">
+            <nav class='menu'>
+                <span class='toggle'>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+                <div class='menuContent'>
+                    <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html/sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="index.html/#composicion">Caraterísticas</a></li>
+                    <li><a href="index.html/#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <button onclick="location.href='login.html';" type="button" class="inicio-sesion">INICIAR SESIÓN</button>
+        </div>
+    </header>
+
+
+
+    <section class="section-ancla">
+        <form class="login" onsubmit="enviar(event)" id="login" method="POST">
+            <h2>Iniciar Sesión</h2>
+            <p id="errorLogin"></p>
+            <input type="text" name="nombre_de_usuario" placeholder="Usuario" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <input type="submit" name="" value="ENTRAR">
+        </form>
+    
+        <div id="textoAncla">
+            <h1>TU CAMPO MÁS INTELIGENTE QUE NUNCA</h1>
+        </div>
+    
+        <script src="js/login.js"></script>
+    </section>
+
+    <footer>
+        <div>
+            <p>¿PREGUNTAS? Llama al 902 543 685</p>
+        </div>
+        <div>
+            <p>&copy;2020 TAO Grupo1 | Todos los derechos reservados</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="img/icons8-facebook-80.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="img/icons8-twitter-64.png" alt="Twitter"></a></li>
+                <li><a href="#"><img src="img/icons8-youtube-80.png" alt="Youtube"></a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $('.toggle').on('click', function() {
+                $('.menu').toggleClass('active');
+            });
+    </script>
+
+</body>
+</html>

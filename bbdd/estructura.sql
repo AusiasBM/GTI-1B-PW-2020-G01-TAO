@@ -1,16 +1,8 @@
 
-CREATE DATABASE pw_2020;
+CREATE table rol(codigo INT PRIMARY KEY AUTO_INCREMENT UNIQUE, nombre VARCHAR(30));
 
-USE pw_2020;
+CREATE TABLE usuarios(codigo INT PRIMARY KEY AUTO_INCREMENT UNIQUE,nombre VARCHAR(30), contraseña VARCHAR(20) NOT NULL, rol INT NOT NULL, FOREIGN KEY (rol) references rol(codigo));
 
-CREATE table rol(nombre VARCHAR(30) PRIMARY KEY);
+INSERT INTO rol(nombre) VALUES ("Cooperativa"), ("Administrador"), ("Usuario");
 
-CREATE TABLE usuarios(nombre VARCHAR(30) PRIMARY KEY, contraseña VARCHAR(20) NOT NULL, rol VARCHAR(30) NOT NULL, FOREIGN KEY (rol) references rol(nombre));
-
-INSERT INTO rol VALUES ("Cooperativa"), ("Administrador"), ("Usuario");
-
-INSERT INTO usuarios VALUES
-    ("Alfonso", "elche", "Usuarios"),
-    ("Antonio", "alzira", "Usuarios"),
-    ("Mario", "villalonga", "Cooperativa"),
-    ("Pedro", "gandia", "Cooperativa");
+INSERT INTO usuarios(nombre, contraseña, rol) VALUES ("Alfonso", "elche", 3), ("Antonio", "alzira", 3),("Mario", "villalonga", 1), ("Pedro", "gandia", 1);
