@@ -2,18 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <script src="js/restringir-acceso.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body style="display: none">
 
-    <a href="javascript:fetch('../api/v1.0/sesion', {method: 'delete'}).then(function(respuesta) {
-        if (respuesta.status == 200){
-          location.href = '..';
-        }
-    })">Cerrar sesión</a>
-    <h1 id="nombreUser">BIENVENIDO</h1>
+    <!-- Header ------------------------------------------------------------------------------------
+    <header>
+        <a href="#" class="logo"><img src="img/logoGTI.svg" alt="fondo"></a>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="toggle()">Inicio</a></li>
+                <li><a href="#about" onclick="toggle()">GTI</a></li>
+                <li><a href="#services" onclick="toggle()">Servicios</a></li>
+                <li><a href="#portfolio" onclick="toggle()">Portfolio</a></li>
+                <li><a href="#contact" onclick="toggle()">Contacto</a></li>
+                <li><a href="login.html" class="button-sesion">INICIAR SESIÓN</a></li>
+            </ul>
+            <div class="toggle" onclick="toggle()"></div>
+        </nav>
+    </header>
+-->
+    <section class="contenedor">
 
+        <h3 id="idNombre">Bienvenido: </h3>
+        <p id="rol"></p>
+
+        <h3>Elige una parcela:</h3>
+
+        <select id="select-parcelas">
+
+        </select>
+
+        <!-- Muestra el usuario, el rol y la lista de parcelas -->
+
+        <script src="js/sesion.js"></script>
+        <script>
+            VistaSelectorSesion.preparar("select-parcelas");
+            ControladorSesion.iniciar();
+            VistaSelectorSesion.selector.onchange = function () {
+                ControladorMapa.modelo.filtrar('nombre', this.value);
+            }
+        </script>
+
+        <div id="map"></div>
+
+    </section>
+
+    <!-- Muestra el mapa y dibuja las parcelas de la lista -->
+
+    <script src="js/mapa.js"></script>
+
+    <script>
+        VistaSelectorMapa.preparar();
+        ControladorMapa.iniciar();
+    </script>
+
+    <!-- Carga la api de google maps -->
+    <script
+            src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer>
+    </script>
 
 </body>
 </html>

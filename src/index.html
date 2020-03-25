@@ -2,172 +2,225 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GTI | TAO</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header ------------------------------------------------------------------------------------->
+    <header>
+        <a href="#" class="logo"><img src="img/logoGTI.svg" alt="fondo"></a>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="toggle()">Inicio</a></li>
+                <li><a href="#about" onclick="toggle()">GTI</a></li>
+                <li><a href="#services" onclick="toggle()">Servicios</a></li>
+                <li><a href="#portfolio" onclick="toggle()">Portfolio</a></li>
+                <li><a href="#contact" onclick="toggle()">Contacto</a></li>
+                <li><a href="login.html" class="button-sesion">INICIAR SESIÓN</a></li>
+            </ul>
+            <div class="toggle" onclick="toggle()"></div>
+        </nav>
+    </header>
     
-    <!----------------------------------- Landing page ----------------------------------->
-    <section id="call-to-action">
-        <header>
-            <img src="img/logoGTI.svg" alt="Grado en Tecnologías Interactivas">
-            <div class="menu-sesion">
-                <nav class='menu'>
-                    <span class='toggle'>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                    </span>
-                    <div class='menuContent'>
-                        <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                        <li><a href="#composicion">Caraterísticas</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <button onclick="location.href='login.html';" type="button" class="inicio-sesion">INICIAR SESIÓN</button>
-            </div>
-        </header>
-        <div class="texto-reclamo">
-            <div>
-                <h1>DESCUBRE DE LO QUE ES CAPAZ <span>TU CAMPO</span></h1>
-                <p>Disfruta de tú tiempo, ahora más que nunca</p>
-            </div>
-            <form class="form-call-to-action" method="post" onsubmit="enviar(event)">
-                <input type="text" name="Correo-electrónico" placeholder="Correo electrónico" required>
-                <input type="submit" value="PROBAR AHORA">
-            </form>
-        </div>
-        
+    <!-- Banner ------------------------------------------------------------------------------------->
+    <section class="banner" id="home">
+        <img class="logo-arbol" src="img/icono-arbol.png" alt="">
+        <h2><span>Descubre</span><br> de lo que es capaz <br><span>Tu</span> campo</h2>
+        <p>Disfruta de tú tiempo, ahora más que nunca</p>
+        <button onclick="location.href='login.html';" type="button" class="button-reclamo">PRUEBALO</button>
+        <a href="#about"><img src="img/abajo.png" alt="flecha abajo"></a>
     </section>
 
-    <!----------------------------------- Landing page ----------------------------------->
+    <!-- About ------------------------------------------------------------------------------------->
+    <section class="sec" id="about">
+        <div class="content">
+            <div class="mxw800p">
+                <h3>QUIÉN ES GTI</h3>
 
-    <section id="contenedor">
-        <section id="sobre-nosotros">
-            
-            <div class="informacion">
-                <h3>GTI desarrolla soluciones inteligentes para la monitorización de cultivos con el objetivo de vigilar las variables ambientales e implementar planes de reducción o tratamientos para la mitigación de plagas, lo que redunda en una mayor producción y de mejor calidad.</h3>
-            
                 <p>
-                    Esta solución permite a los productores agrícolas monitorizar desde cualquier dispositivo con conexión a Internet el estado actual de sus cultivos, plantas o viñedos, los posibles riesgos de padecer enfermedades y en general, realizar una gestión integral; todo ello basado en datos objetivos recolectados de la explotación en tiempo real.
+                    GTI desarrolla soluciones inteligentes para la monitorización de cultivos,
+                    esta solución permite a los productores agrícolas monitorizar desde 
+                    cualquier dispositivo con conexión a Internet el estado actual de 
+                    sus cultivos, plantas o viñedos y en general, realizar una gestión integral; 
+                    todo ello basado en datos objetivos recolectados de la explotación en tiempo real.
                     <br>
-                    Los equipos GTI, desarrollados específicamente para proyectos de monitorización de variables ambientales en cultivos, han sido diseñados en colaboración con especialistas agrónomos. Su versatilidad hace que sean sistemas ideales en procesos de agricultura de precisión.
+                    Los equipos GTI, desarrollados específicamente para proyectos 
+                    de monitorización de variables ambientales en cultivos, han sido 
+                    diseñados en colaboración con especialistas agrónomos. Su versatilidad 
+                    hace que sean sistemas ideales en procesos de agricultura de precisión.
                 </p>
-
+                <a href="#contact" class="btn">CONTACTAR</a>
             </div>
-
-            <div class="foto foto1"></div>
-        </section>
-
-        <div class="hrr"></div>
-
-        <section id="composicion">
-
-            <!--<div class="foto foto2"></div>-->
-            <div class="informacion">
-                <h4>Composición de la solución de monitorización de cultivos</h4>
-                <p><span>1 </span> - Red inalámbrica de estaciones agroclimáticas con sensores que capturan variables de interés en agricultura para la detección de niveles de irrigación y eficiencia, con el objetivo de optimizar el consumo de agua y fertilizantes:</p>
-                <div class="contenedor-informacion">
-                    <div class="caracteristicas">  
-                            <p><span>▹ </span> Temperatura del aire.</p>
-                            <p><span>▹ </span>Temperatura de la hoja.</p>
-                            <p><span>▹ </span>Humedad del aire.</p>
-                            <p><span>▹ </span>Humectación de hoja.</p>
-                            <p><span>▹ </span>Contenido volumétrico de agua en suelo a diferentes profundidades.</p>
+        </div>
+    </section>
+    <!-- Services ------------------------------------------------------------------------------------->
+    <section class="sec about" id="services">
+        <div class="content">
+            <div class="mxw800p">
+                <h3>Servicios GTI</h3>
+                <p>Red inalámbrica de estaciones agroclimáticas con sensores 
+                    que capturan variables de interés en agricultura para la 
+                    detección de niveles de irrigación y eficiencia, con el 
+                    objetivo de optimizar el consumo de agua y fertilizantes.
+                    <br>
+                    Plataforma IoT para la explotación de los datos capturados 
+                    con el fin de generar alertas y notificaciones ante eventos 
+                    que puedan suponer una situación de riesgo.
+                </p>
+            </div>
+            <div class="services">
+                <!-- BOX 1 ----------------------------->
+                <div class="box">
+                    <div class="iconBx">
+                        <img src="img/icon1.png" alt="">
                     </div>
-                    <div class="hrr-vertical"></div>
-                    <div class="caracteristicas">
-                        <p><span>▹ </span>Conductividad del suelo.</p>
-                        <p><span>▹ </span>Temperatura del suelo.</p>
-                        <p><span>▹ </span>Precipitación.</p>
-                        <p><span>▹ </span>Velocidad del viento.</p>
-                        <p><span>▹ </span>Dirección del viento.</p>
+                    <div class="content">
+                        <h2>Datos</h2>
+                        <p>Gracias a nuestra tecnología puedes recoger todos los datos
+                            de tu campo y tenerlos en la palma de la mano.
+                        </p>
                     </div>
-
                 </div>
-                <p>
-                    <span>2</span> - Plataforma IoT para la explotación de los datos capturados con el fin de generar alertas y notificaciones ante eventos que puedan suponer una situación de riesgo.
-                </p>
+
+                <!-- BOX 2 ----------------------------->
+                <div class="box">
+                    <div class="iconBx">
+                        <img src="img/icon2.png" alt="">
+                    </div>
+                    <div class="content">
+                        <h2>monitorización</h2>
+                        <p>Con nuestros dispositivos puedes monitorizar tu campo
+                            por completo sin tener que ir al mismo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BOX 3 ----------------------------->
+                <div class="box">
+                    <div class="iconBx">
+                        <img src="img/icon3.png" alt="">
+                    </div>
+                    <div class="content">
+                        <h2>Mejoras</h2>
+                        <p>Con los datos que recogen nuestros dispositivos puede
+                            mejorar considerablemente sus cultivos.
+                        </p>
+                    </div>
+                </div>
 
             </div>
-
-        </section>
-
-        <div class="hrr"></div>
-
-        <section id="alertas">
-
-            <div class="informacion">
-                <h4>Gestión de alertas</h4>
-
-                <p>
-                    El sistema está capacitado para la detección de eventos relevantes para el negocio 
-                    mediante Inteligencia Artificial y Sistemas expertos. Con la configuración de alertas 
-                    los operadores disponen de información al instante sobre posibles desviaciones que 
-                    precisan de intervención inmediata, incluso antes de que pueda llegar a darse el fallo.
-                    La electrónica de adquisición y comunicaciones controla en continuo las variables 
-                    ambientales de las granjas y el envío los datos al centro de control a intervalos 
-                    planificados.
+        </div>
+    </section>
+    <!-- Stats ------------------------------------------------------------------------------------->
+    <section class="sec stats">
+        <div class="content">
+            <div class="mxw800p">
+                <h3>Nuestros logros</h3>
+                <p>Gracias a nuestros servicios miles de clientes han podido
+                    favorecer su cosecha y mejorar sus ingresos considerablemente,
+                    de esta forma todos nuestros cliente han podido tener todo más
+                    controlado sin tener que estar físicamente en el campo.
                 </p>
-
             </div>
-            <div class="foto foto3"></div>
-        </section>
-
-        <section class="section-call-to-action">
-            <h2>PRUEBA AHORA</h2>
-            <form class="form-call-to-action2" method="post" onsubmit="enviar(event)">
-                <input type="text" name="Correo-electrónico" placeholder="Correo electrónico" required>
-                <input type="submit" value="PROBAR AHORA">
-            </form>
-        </section>
-
-        <section id="contacto">
-            <h4>CONTACTA CON NOSOTROS</h4>
-            <h3>Te ayudaremos en todo lo posible</h3>
-            <div class="tablero-contacto">
-                <div class="info-contacto">
-                    <div class="info"><img src="img/icons8-nombre-50.png" alt="Nombre">José Luis Giménez López</div>
-                    <div class="info"><img src="img/icons8-teléfono-50.png" alt="Teléfono">963877000</div>
-                    <div class="info"><img src="img/icons8-correo-50.png" alt="Correo">jogilo@upvnet.upv.es</div>
+            <div class="statsBox">
+                <div class="box">
+                    <h2>1200+</h2>
+                    <h4>Sondas</h4>
                 </div>
-                <div class="hr-contacto"></div>
-                <form class="form-contacto" method="post" onsubmit="enviar(event)">
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="text" name="correo-electrónico" placeholder="Correo electrónico" required>
-                    <textarea name="message" rows="7" cols="30" placeholder="Mensaje" required></textarea>
-                    <input type="submit" value="ENVIAR">
+                <div class="box">
+                    <h2>800+</h2>
+                    <h4>Projectos</h4>
+                </div>
+                <div class="box">
+                    <h2>500+</h2>
+                    <h4>Clientes agradecidos</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio ------------------------------------------------------------------------------------->
+    
+    <section class="sec work" id="portfolio">
+        <div class="content">
+            <div class="mxw800p">
+                <h3>Trabajos recientes</h3>
+                <p>Aquí podemos ver algunos clientes que disfrutan de nuestros servicios.</p>
+            </div>
+            <div class="workBx">
+                <div class="brand cliente1">
+                    <a href="#"><h2>Maria Perez</h2></a>
+                </div>
+                <div class="brand cliente2">
+                    <a href="#"><h2>Antonio Ramirez</h2></a>
+                </div>
+                <div class="brand cliente3">
+                    <a href="#"><h2>Mario Jimenez</h2></a>
+                </div>
+                <div class="brand cliente4">
+                    <a href="#"><h2>Marta Naranjo</h2></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact ------------------------------------------------------------------------------------->
+
+    <section class="sec contact" id="contact">
+        <div class="content">
+            <div class="mxw800p">
+                <h3>Envianos un mensaje</h3>
+                <p>Resolvemos todas tus dudas en menos de 48h</p>
+            </div>
+            <div class="contactForm">
+                <form action="">
+                    <div class="row100">
+                        <div class="inputBx50">
+                            <input type="text" name="" placeholder="Nombre completo">
+                        </div>
+                        <div class="inputBx50">
+                            <input type="text" name="" placeholder="Correo electrónico">
+                        </div>
+                    </div>
+                    <div class="row100">
+                        <div class="inputBx100">
+                            <textarea name="" placeholder="Mensaje"></textarea>
+                        </div>
+                    </div>
+                    <div class="row100">
+                        <div class="inputBx100">
+                            <input type="submit" name="" value="Enviar">
+                        </div>
+                    </div>
                 </form>
             </div>
-        </section>
-
-        <footer>
-            <div>
-                <p>¿PREGUNTAS? Llama al 902 543 685</p>
-            </div>
-            <div>
-                <p>&copy;2020 TAO Grupo1 | Todos los derechos reservados</p>
-            </div>
-            <nav>
+            <div class="sci">
                 <ul>
-                    <li><a href="#"><img src="img/icons8-facebook-80.png" alt="Facebook"></a></li>
-                    <li><a href="#"><img src="img/icons8-twitter-64.png" alt="Twitter"></a></li>
-                    <li><a href="#"><img src="img/icons8-youtube-80.png" alt="Youtube"></a></li>
+                    <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
                 </ul>
-            </nav>
-        </footer>
-
+            </div>
+            <p class="copyright">©2020 <a href="#">TAO Grupo1</a> | Todos los derechos reservados</p>
+        </div>
     </section>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script>
-        $('.toggle').on('click', function() {
-                $('.menu').toggleClass('active');
-            });
+
+
+    <!-- SCRIPT ------------------------------------------------------------------------------------->
+
+    <!-- Este script le pone una clase al header cuando el scroll Y es mayor a 0 -->
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+
+        function toggle(){
+            var header = document.querySelector("header");
+            header.classList.toggle("active");
+        }
+
     </script>
 
 </body>
