@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GTI | TAO</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <!----------------------------------- Landing page ----------------------------------->
+    <section id="call-to-action">
+        <header>
+            <img src="img/logoGTI.svg" alt="Grado en Tecnologías Interactivas">
+            <div class="menu-sesion">
+                <nav class='menu'>
+                    <span class='toggle'>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                    <div class='menuContent'>
+                        <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#composicion">Caraterísticas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <button onclick="location.href='login.html';" type="button" class="inicio-sesion">INICIAR SESIÓN</button>
+            </div>
+        </header>
+        <div class="texto-reclamo">
+            <div>
+                <h1>DESCUBRE DE LO QUE ES CAPAZ <span>TU CAMPO</span></h1>
+                <p>Disfruta de tú tiempo, ahora más que nunca</p>
+            </div>
+            <form class="form-call-to-action" method="post" onsubmit="enviar(event)">
+                <input type="text" name="Correo-electrónico" placeholder="Correo electrónico" required>
+                <input type="submit" value="PROBAR AHORA">
+            </form>
+        </div>
+        
+    </section>
+
+    <!----------------------------------- Landing page ----------------------------------->
+
+    <section id="contenedor">
+        <section id="sobre-nosotros">
+            
+            <div class="informacion">
+                <h3>GTI desarrolla soluciones inteligentes para la monitorización de cultivos con el objetivo de vigilar las variables ambientales e implementar planes de reducción o tratamientos para la mitigación de plagas, lo que redunda en una mayor producción y de mejor calidad.</h3>
+            
+                <p>
+                    Esta solución permite a los productores agrícolas monitorizar desde cualquier dispositivo con conexión a Internet el estado actual de sus cultivos, plantas o viñedos, los posibles riesgos de padecer enfermedades y en general, realizar una gestión integral; todo ello basado en datos objetivos recolectados de la explotación en tiempo real.
+                    <br>
+                    Los equipos GTI, desarrollados específicamente para proyectos de monitorización de variables ambientales en cultivos, han sido diseñados en colaboración con especialistas agrónomos. Su versatilidad hace que sean sistemas ideales en procesos de agricultura de precisión.
+                </p>
+
+            </div>
+
+            <div class="foto foto1"></div>
+        </section>
+
+        <div class="hrr"></div>
+
+        <section id="composicion">
+
+            <!--<div class="foto foto2"></div>-->
+            <div class="informacion">
+                <h4>Composición de la solución de monitorización de cultivos</h4>
+                <p><span>1 </span> - Red inalámbrica de estaciones agroclimáticas con sensores que capturan variables de interés en agricultura para la detección de niveles de irrigación y eficiencia, con el objetivo de optimizar el consumo de agua y fertilizantes:</p>
+                <div class="contenedor-informacion">
+                    <div class="caracteristicas">  
+                            <p><span>▹ </span> Temperatura del aire.</p>
+                            <p><span>▹ </span>Temperatura de la hoja.</p>
+                            <p><span>▹ </span>Humedad del aire.</p>
+                            <p><span>▹ </span>Humectación de hoja.</p>
+                            <p><span>▹ </span>Contenido volumétrico de agua en suelo a diferentes profundidades.</p>
+                    </div>
+                    <div class="hrr-vertical"></div>
+                    <div class="caracteristicas">
+                        <p><span>▹ </span>Conductividad del suelo.</p>
+                        <p><span>▹ </span>Temperatura del suelo.</p>
+                        <p><span>▹ </span>Precipitación.</p>
+                        <p><span>▹ </span>Velocidad del viento.</p>
+                        <p><span>▹ </span>Dirección del viento.</p>
+                    </div>
+
+                </div>
+                <p>
+                    <span>2</span> - Plataforma IoT para la explotación de los datos capturados con el fin de generar alertas y notificaciones ante eventos que puedan suponer una situación de riesgo.
+                </p>
+
+            </div>
+
+        </section>
+
+        <div class="hrr"></div>
+
+        <section id="alertas">
+
+            <div class="informacion">
+                <h4>Gestión de alertas</h4>
+
+                <p>
+                    El sistema está capacitado para la detección de eventos relevantes para el negocio 
+                    mediante Inteligencia Artificial y Sistemas expertos. Con la configuración de alertas 
+                    los operadores disponen de información al instante sobre posibles desviaciones que 
+                    precisan de intervención inmediata, incluso antes de que pueda llegar a darse el fallo.
+                    La electrónica de adquisición y comunicaciones controla en continuo las variables 
+                    ambientales de las granjas y el envío los datos al centro de control a intervalos 
+                    planificados.
+                </p>
+
+            </div>
+            <div class="foto foto3"></div>
+        </section>
+
+        <section class="section-call-to-action">
+            <h2>PRUEBA AHORA</h2>
+            <form class="form-call-to-action2" method="post" onsubmit="enviar(event)">
+                <input type="text" name="Correo-electrónico" placeholder="Correo electrónico" required>
+                <input type="submit" value="PROBAR AHORA">
+            </form>
+        </section>
+
+        <section id="contacto">
+            <h4>CONTACTA CON NOSOTROS</h4>
+            <h3>Te ayudaremos en todo lo posible</h3>
+            <div class="tablero-contacto">
+                <div class="info-contacto">
+                    <div class="info"><img src="img/icons8-nombre-50.png" alt="Nombre">José Luis Giménez López</div>
+                    <div class="info"><img src="img/icons8-teléfono-50.png" alt="Teléfono">963877000</div>
+                    <div class="info"><img src="img/icons8-correo-50.png" alt="Correo">jogilo@upvnet.upv.es</div>
+                </div>
+                <div class="hr-contacto"></div>
+                <form class="form-contacto" method="post" onsubmit="enviar(event)">
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="correo-electrónico" placeholder="Correo electrónico" required>
+                    <textarea name="message" rows="7" cols="30" placeholder="Mensaje" required></textarea>
+                    <input type="submit" value="ENVIAR">
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div>
+                <p>¿PREGUNTAS? Llama al 902 543 685</p>
+            </div>
+            <div>
+                <p>&copy;2020 TAO Grupo1 | Todos los derechos reservados</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><img src="img/icons8-facebook-80.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="img/icons8-twitter-64.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="img/icons8-youtube-80.png" alt="Youtube"></a></li>
+                </ul>
+            </nav>
+        </footer>
+
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $('.toggle').on('click', function() {
+                $('.menu').toggleClass('active');
+            });
+    </script>
+
+</body>
+</html>
