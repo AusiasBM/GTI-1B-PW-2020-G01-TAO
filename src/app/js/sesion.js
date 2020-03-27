@@ -1,5 +1,3 @@
-
-
 fetch('../api/v1.0/sesion').then(function (respuesta) {
     //console.log(respuesta);
     return respuesta.json();
@@ -11,9 +9,6 @@ fetch('../api/v1.0/sesion').then(function (respuesta) {
     let rol = document.getElementById('rol');
     rol.innerHTML += `${datosJson[0].rol}`
 });
-
-
-
 
 let ModeloSesion = {
     url : '../api/v1.0/parcelas',
@@ -40,6 +35,8 @@ let VistaSelectorSesion = {
     preparar : function(selectId){
         this.selector = document.getElementById(selectId);
         this.selector.innerHTML = '<option value="0">Todas</option>';
+
+
     },
     representar : function (parcelas) {
         parcelas.forEach((parcela) => {
@@ -59,23 +56,3 @@ let ControladorSesion = {
         this.vista.representar(this.modelo.datos);
     }
 };
-
-
-
-/*
-fetch('../api/v1.0/parcelas').then(function (respuesta) {
-    //console.log(respuesta);
-    return respuesta.json();
-}).then(function (datosJson) {
-    console.log(datosJson);
-
-    let selector = document.getElementById('select-parcelas');
-
-    selector.onchange = function () {
-        ControladorVentas.modelo.filtrar('nombre', this.value);
-    }
-    datosJson.forEach(function (parcela) {
-        // Permite escribir código html entre sus etiquetas.
-        selector.innerHTML += `<option>${parcela.nombre}</option>`;
-    })
-});*/

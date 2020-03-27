@@ -6,8 +6,7 @@ if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
 
     $usuario = $_SESSION['idUsuario'];
 
-    $sql = "SELECT parcelas.*, posicion.latitud, posicion.longitud from parcelas, usuarios_parcelas, posicion where parcelas.idParcelas =  usuarios_parcelas.idParcelas and usuarios_parcelas.idUsuario = $usuario and posicion.idParcelas = parcelas.idParcelas";
-
+    $sql = "select parcelas.*, vertices.latitud, vertices.longitud from parcelas, usuarios_parcelas, vertices where usuarios_parcelas.idUsuario = $usuario and parcelas.idParcela = usuarios_parcelas.idParcela and vertices.idParcela = parcelas.idParcela";
 
     $filtros = array();
 
@@ -19,7 +18,6 @@ if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
 
     $res = mysqli_query($conexion, $sql);
 
-
     $id = '-1';
     $cont = $res ->num_rows;
     $vertice = array();
@@ -27,19 +25,19 @@ if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
     while ($fila = mysqli_fetch_assoc($res)) {
 
         if ($id == '-1'){
-            $id = $fila["idParcelas"];
-            $parcela = array("idParcela" => $fila["idParcelas"],
+            $id = $fila["idParcela"];
+            $parcela = array("idParcela" => $fila["idParcela"],
                 "nombre" => $fila["nombre"],
                 "color" => $fila["color"],
                 "tipoCultivo" => $fila["tipoCultivo"],
                 "vertices" => array());
         }
 
-        if ($id != $fila["idParcelas"] || cont == 1){
+        if ($id != $fila["idParcela"] || cont == 1){
             array_push($salida, $parcela);
 
-            $id = $fila["idParcelas"];
-            $parcela = array("idParcela" => $fila["idParcelas"],
+            $id = $fila["idParcela"];
+            $parcela = array("idParcela" => $fila["idParcela"],
                 "nombre" => $fila["nombre"],
                 "color" => $fila["color"],
                 "tipoCultivo" => $fila["tipoCultivo"],
@@ -47,17 +45,17 @@ if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
 
         }
 
-        $vertice = array("lat" => floatval($fila["latitud"]),
-                        "lng" =>  floatval($fila["longitud"]));
+        $cont = $cont -1;
+
+        $vertice = array("lat" =>  floatval($fila["latitud"]),
+                         "lng" =>  floatval($fila["longitud"]));
 
         array_push($parcela["vertices"], $vertice);
-
 
         $vertice = array();
 }
 
     array_push($salida, $parcela);
-
 
     $http_code = 200;
 }else{

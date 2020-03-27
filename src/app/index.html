@@ -51,14 +51,24 @@
 
     </section>
 
-    <!-- Muestra el mapa y dibuja las parcelas de la lista -->
+    <!-- Muestra el mapa -->
 
     <script src="js/mapa.js"></script>
 
+    <!-- Pinta las sondas -->
+    <script src="js/sondas.js"></script>
+    <script>
+        VistaSelectorSonda.preparar();
+        ControladorSonda.iniciar();
+    </script>
+
+    <!-- Pinta las Parcelas -->
+    <script src="js/parcelas.js"></script>
     <script>
         VistaSelectorMapa.preparar();
         ControladorMapa.iniciar();
     </script>
+
 
     <!-- Carga la api de google maps -->
     <script

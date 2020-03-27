@@ -1,19 +1,20 @@
 <?php
 
-
 session_start();
 
-if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok') {
+if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
 
     $usuario = $_SESSION['idUsuario'];
 
-    $sql = "SELECT parcelas.*, posicion.latitud, posicion.longitud from parcelas, usuarios_parcelas, posicion where parcelas.idParcelas =  usuarios_parcelas.idParcelas and usuarios_parcelas.idUsuario = $usuario and posicion.idParcelas = parcelas.idParcelas";
+    $sql = "select sondas.idSonda, parcelas.idParcela, posiciones.longitud, posiciones.latitud from parcelas, posiciones, sondas, usuarios_parcelas where usuarios_parcelas.idUsuario = $usuario and usuarios_parcelas.idParcela = parcelas.idParcela and parcelas.idParcela = posiciones.idParcela and posiciones.idPosicion = sondas.idPosicion";
 
+    // Filtro
+    //and parcelas.idParcela = 2
 
     $filtros = array();
 
     if (isset($_GET['nombre'])) {
-        array_push($filtros, 'parcelas.nombre = ' . '"' . $_GET['nombre'] . '"');
+        array_push($filtros, 'parcelas.nombre = ' .  '"' . $_GET['nombre'] . '"');
     }
 
     if (count($filtros) > 0) $sql .= ' AND ' . join(' AND ', $filtros);
@@ -21,46 +22,21 @@ if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok') {
     $res = mysqli_query($conexion, $sql);
 
 
-    $id = '-1';
-    $cont = $res->num_rows;
-    $vertice = array();
-
     while ($fila = mysqli_fetch_assoc($res)) {
 
-        if ($id == '-1') {
-            $id = $fila["idParcelas"];
-            $parcela = array("idParcela" => $fila["idParcelas"],
-                "nombre" => $fila["nombre"],
-                "color" => $fila["color"],
-                "tipoCultivo" => $fila["tipoCultivo"],
-                "vertices" => array());
-        }
+        $sonda = array(
+                "idSonda" => $fila["idSonda"],
+                "idParcela" => $fila["idParcela"],
+                "lat" =>  floatval($fila["latitud"]),
+                "lng" =>  floatval($fila["longitud"]
+            )
+        );
 
-        if ($id != $fila["idParcelas"] || cont == 1) {
-            array_push($salida, $parcela);
+        array_push($salida, $sonda);
 
-            $id = $fila["idParcelas"];
-            $parcela = array("idParcela" => $fila["idParcelas"],
-                "nombre" => $fila["nombre"],
-                "color" => $fila["color"],
-                "tipoCultivo" => $fila["tipoCultivo"],
-                "vertices" => array());
-
-        }
-
-        $vertice = array("lat" => floatval($fila["latitud"]),
-            "lng" => floatval($fila["longitud"]));
-
-        array_push($parcela["vertices"], $vertice);
-
-
-        $vertice = array();
     }
 
-    array_push($salida, $parcela);
-
-
     $http_code = 200;
-} else {
+}else{
     $http_code = 401;
 }
