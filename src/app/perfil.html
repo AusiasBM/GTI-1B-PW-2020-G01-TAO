@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="h-100" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI | Aplicación - Perfil</title>
+    <script src="js/restringir-acceso.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body style="display: none">
+
+
+
+<section class="container-fluid">
+
+    <header class="row">
+        <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand p-0" href="/index.html">
+                <img src="img/logoGTI.svg" width="130" alt="logotipo GTI">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">PERFIL</a>
+                    </li>
+                    <li class="nav-item linea">
+                        <a class="nav-link" href="javascript:fetch('../api/v1.0/sesion', {method: 'delete'}).then(function(respuesta) {
+                              if (respuesta.status == 200){
+                                location.href = '..';
+                              }
+                            })">CERRAR SESIÓN
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <section id="perfil" class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <img src="img/alfonso.jpg" class="mr-5">
+            <div>
+                <h3 id="nombre_usuario">...</h3>
+                <p id="rol_usuario">...</p>
+            </div>
+        </div>
+
+        <hr>
+        <!--
+        <div class="row info_perfil">
+            <h4>Correo</h4>
+            <p class="col-12 border-bottom" id="correo_perfil">Correo</p>
+            <h4>Teléfono</h4>
+            <p class="col-12 border-bottom" id="telefono_perfil">Teléfono</p>
+            <h4>Dirección</h4>
+            <p class="col-12 border-bottom" id="direccion_perfil">Dirección</p>
+            <!--<p class="col-12" id="mapa_perfil">Mapa</p>
+        </div>-->
+    </section>
+
+</section>
+
+
+<!------------------------------- SCRIPT ------------------------------------------------->
+
+<script src="js/sesion.js"></script>
+
+<script>
+
+    VistaSelectorSesion.preparar();
+    ControladorSesion.iniciar();
+
+
+
+</script>
+<!---------------------------------------------------------------------------------------->
+<!------------------------------- BOOTSTRAP ------------------------------------------------->
+<script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!----------------------------------------------------------------------------------------------->
+
+</body>
+</html>

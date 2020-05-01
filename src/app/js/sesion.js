@@ -1,17 +1,5 @@
-fetch('../api/v1.0/sesion').then(function (respuesta) {
-    //console.log(respuesta);
-    return respuesta.json();
-}).then(function (datosJson) {
-    //console.log(datosJson);
-    let nombre = document.getElementById('idNombre');
-    nombre.innerHTML += `${datosJson[0].nombre}`
-
-    let rol = document.getElementById('rol');
-    rol.innerHTML += `${datosJson[0].rol}`
-});
-
 let ModeloSesion = {
-    url : '../api/v1.0/parcelas',
+    url : '../api/v1.0/sesion',
     controlador : {},
     datos : [],
     cargar : function (url = '') {
@@ -31,17 +19,19 @@ let ModeloSesion = {
 };
 
 let VistaSelectorSesion = {
-    selector : {},
-    preparar : function(selectId){
-        this.selector = document.getElementById(selectId);
-        this.selector.innerHTML = '<option value="0">Todas</option>';
-
-
+    nombreUsuario : {},
+    rolUsuario : {},
+    preparar : function(){
+        this.nombreUsuario = document.getElementById("nombre_usuario");
+        this.rolUsuario = document.getElementById("rol_usuario");
     },
-    representar : function (parcelas) {
-        parcelas.forEach((parcela) => {
-            this.selector.innerHTML += `<option>${parcela.nombre}</option>`
-        })
+    representar : function (datos_perfil) {
+
+        //console.log(datos_perfil)
+
+        this.nombreUsuario.innerHTML = datos_perfil[0][1];
+        this.rolUsuario.innerHTML = datos_perfil[0][2];
+
     }
 };
 

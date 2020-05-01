@@ -8,14 +8,6 @@ if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
 
     $sql = "select parcelas.*, vertices.latitud, vertices.longitud from parcelas, usuarios_parcelas, vertices where usuarios_parcelas.idUsuario = $usuario and parcelas.idParcela = usuarios_parcelas.idParcela and vertices.idParcela = parcelas.idParcela";
 
-    $filtros = array();
-
-    if (isset($_GET['nombre'])) {
-        array_push($filtros, 'parcelas.nombre = ' .  '"' . $_GET['nombre'] . '"');
-    }
-
-    if (count($filtros) > 0) $sql .= ' AND ' . join(' AND ', $filtros);
-
     $res = mysqli_query($conexion, $sql);
 
     $id = '-1';

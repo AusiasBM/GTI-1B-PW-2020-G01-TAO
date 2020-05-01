@@ -3,65 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTI | TAO - Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>GTI | INICIO DE SESIÓN</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="img/logoGTI.svg" sizes="64x64">
 </head>
 <body>
-    <!-- Header ------------------------------------------------------------------------------------->
-    <header>
-        <a href="index.html#home" class="logo"><img src="img/logoGTI.svg" alt="fondo"></a>
-        <nav>
-            <ul>
-                <li><a href="index.html#home" onclick="toggle()">Inicio</a></li>
-                <li><a href="index.html#about" onclick="toggle()">GTI</a></li>
-                <li><a href="index.html#services" onclick="toggle()">Servicios</a></li>
-                <li><a href="index.html#portfolio" onclick="toggle()">Portfolio</a></li>
-                <li><a href="index.html#contact" onclick="toggle()">Contacto</a></li>
-                <li><a class="button-sesion">INICIAR SESIÓN</a></li>
-            </ul>
-            <div class="toggle" onclick="toggle()"></div>
-        </nav>
-    </header>
 
+    <section class="container-fluid">
+        <!-- Header ------------------------------------------------------------------------------------->
+        <header class="row">
+            <nav class="col navbar navbar-expand-md fixed-top navbar-light bg-light">
+                <a class="navbar-brand p-0" href="index.html">
+                    <img src="img/logoGTI.svg" width="130" alt="logotipo GTI">
+                </a>
 
-    <!-- Login ------------------------------------------------------------------------------------->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <section class="login">
-
-        <form class="loginForm" onsubmit="enviar(event)" id="login" method="POST">
-            <h2>Iniciar Sesión</h2>
-            <h4>TU CAMPO MÁS INTELIGENTE QUE NUNCA</h4>
-            <p id="errorLogin"></p>
-            <div class="row100">
-                <div class="inputBx50">
-                    <input type="text" name="nombre_de_usuario" placeholder="Usuario" required>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">INICIO<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gti">GTI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicios">SERVICIOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">CONTACTO</a>
+                        </li>
+                        <li class="nav-item linea active">
+                            <a class="nav-link" href="login.html">INICIO SESIÓN</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="inputBx50">
-                    <input type="password" name="contraseña" placeholder="Contraseña" required>
-                </div>
+            </nav>
+
+        </header>
+
+        <!-- Login ------------------------------------------------------------------------------------->
+
+        <section id="gti" class="row">
+
+            <div class="col-xs-12 col-md-6 p-5 bg-white d-flex flex-column justify-content-center align-items-center text-center align-items-md-start text-md-left">
+                <h3>INICIO DE SESIÓN</h3>
+                <p>TU CAMPO MÁS INTELIGENTE QUE NUNCA</p>
+                <h5 id="errorLogin"></h5>
+
+                <form onsubmit="enviar(event)" id="login" method="POST">
+                    <div class="form-group">
+                        <label for="label_usuario">Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="label_usuario" name="nombre_de_usuario" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="label_contraseña">Contraseña</label>
+                        <input type="password" class="form-control" name="contraseña" id="label_contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">ENTRAR</button>
+                </form>
+
             </div>
-            <div class="row100">
-                <div class="inputBx100">
-                    <input type="submit" name="" value="ENTRAR">
-                </div>
-            </div>
-        </form>
 
-        <script src="js/login.js"></script>
+        </section>
 
     </section>
 
+    <!----------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
+    <!----------------------------------------------------------------------------------------------->
 
-
-    <!-- Este script le pone una clase al header cuando el scroll Y es mayor a 0 -->
-    <script type="text/javascript">
-
-        function toggle(){
-            var header = document.querySelector("header");
-            header.classList.toggle("active");
-        }
-
-    </script>
 
 </body>
 </html>

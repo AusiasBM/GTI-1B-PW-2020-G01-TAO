@@ -4,15 +4,9 @@ session_start();
 
 if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
 
-    $usuario = $_SESSION['idUsuario'];
+    $usuario = array($_SESSION['idUsuario'], $_SESSION['nombre_usuario'], $_SESSION['rol_usuario']);
 
-    $sql = "SELECT nombre, rol FROM usuarios where idUsuario = \"$usuario\"";
-
-    $res = mysqli_query($conexion, $sql);
-
-    $row = mysqli_fetch_assoc($res);
-
-    array_push($salida, $row);
+    array_push($salida, $usuario);
 
     $http_code = 200;
 }else{

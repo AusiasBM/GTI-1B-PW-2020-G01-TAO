@@ -1,41 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTI | TAO</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>GTI | Monitoriza tu campo</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="img/logoGTI.svg" sizes="64x64">
 </head>
 <body>
-    <!-- Header ------------------------------------------------------------------------------------->
-    <header>
-        <a href="#" class="logo"><img src="img/logoGTI.svg" alt="fondo"></a>
-        <nav>
-            <ul>
-                <li><a href="#home" onclick="toggle()">Inicio</a></li>
-                <li><a href="#about" onclick="toggle()">GTI</a></li>
-                <li><a href="#services" onclick="toggle()">Servicios</a></li>
-                <li><a href="#portfolio" onclick="toggle()">Portfolio</a></li>
-                <li><a href="#contact" onclick="toggle()">Contacto</a></li>
-                <li><a href="login.html" class="button-sesion">INICIAR SESIÓN</a></li>
-            </ul>
-            <div class="toggle" onclick="toggle()"></div>
-        </nav>
-    </header>
-    
-    <!-- Banner ------------------------------------------------------------------------------------->
-    <section class="banner" id="home">
-        <img class="logo-arbol" src="img/icono-arbol.png" alt="">
-        <h2><span>Descubre</span><br> de lo que es capaz <br><span>Tu</span> campo</h2>
-        <p>Disfruta de tú tiempo, ahora más que nunca</p>
-        <button onclick="location.href='login.html';" type="button" class="button-reclamo">PRUEBALO</button>
-        <a href="#about"><img src="img/abajo.png" alt="flecha abajo"></a>
-    </section>
 
-    <!-- About ------------------------------------------------------------------------------------->
-    <section class="sec" id="about">
-        <div class="content">
-            <div class="mxw800p">
+    <section class="container-fluid">
+
+        <header class="row">
+            <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
+                <a class="navbar-brand p-0" href="/index.html">
+                    <img src="img/logoGTI.svg" width="130" alt="logotipo GTI">
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav align-items-center">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">INICIO<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#gti">GTI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">SERVICIOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">CONTACTO</a>
+                    </li>
+                    <li class="nav-item linea">
+                        <a class="nav-link" href="login.html">INICIO SESIÓN</a>
+                    </li>
+                  </ul>
+                </div>
+            </nav>
+           
+        </header>  
+        
+        <section class="row text-white text-center banner">
+            <div class="col mt-3 d-flex align-items-center justify-content-center flex-column">
+                <h1 class="mt-5 pt-5">DESCUBRE<br> DE LO QUE ES CAPAZ <br>TU CAMPO</h1>
+                <a role="button" href="#contacto" class="btn btn-success btn-lg border-success d-flex align-items-center justify-content-center">CONTACTA</a>
+                <a href="#gti" class="pt-5"><img src="img/abajo.png" width="90" alt="flecha abajo"></a>
+            </div>
+        </section>
+
+        <section id="gti" class="row">
+
+            <div class="col-xs-12 col-md-6 p-5 bg-white d-flex flex-column justify-content-center align-items-start text-left">
                 <h3>QUIÉN ES GTI</h3>
 
                 <p>
@@ -50,15 +70,15 @@
                     diseñados en colaboración con especialistas agrónomos. Su versatilidad 
                     hace que sean sistemas ideales en procesos de agricultura de precisión.
                 </p>
-                <a href="#contact" class="btn">CONTACTAR</a>
+
             </div>
-        </div>
-    </section>
-    <!-- Services ------------------------------------------------------------------------------------->
-    <section class="sec about" id="services">
-        <div class="content">
-            <div class="mxw800p">
-                <h3>Servicios GTI</h3>
+
+        </section>
+
+        <section id="servicios" class="row my-5 pt-5">
+
+            <div class="col-12 mt-5 px-5 text-center">
+                <h3>SERVICIOS GTI</h3>
                 <p>Red inalámbrica de estaciones agroclimáticas con sensores 
                     que capturan variables de interés en agricultura para la 
                     detección de niveles de irrigación y eficiencia, con el 
@@ -69,159 +89,65 @@
                     que puedan suponer una situación de riesgo.
                 </p>
             </div>
-            <div class="services">
-                <!-- BOX 1 ----------------------------->
-                <div class="box">
-                    <div class="iconBx">
-                        <img src="img/icon1.png" alt="">
-                    </div>
-                    <div class="content">
-                        <h2>Datos</h2>
-                        <p>Gracias a nuestra tecnología puedes recoger todos los datos
-                            de tu campo y tenerlos en la palma de la mano.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- BOX 2 ----------------------------->
-                <div class="box">
-                    <div class="iconBx">
-                        <img src="img/icon2.png" alt="">
-                    </div>
-                    <div class="content">
-                        <h2>monitorización</h2>
-                        <p>Con nuestros dispositivos puedes monitorizar tu campo
-                            por completo sin tener que ir al mismo.
-                        </p>
-                    </div>
+            <div class="card-group px-5">
+                <div class="card">
+                  <img src="img/datos.jpg" class="card-img-top" alt="datos">
+                  <div class="card-body">
+                    <h4 class="card-title">DATOS</h4>
+                    <p class="card-text">Gracias a nuestra tecnología puedes recoger todos los datos
+                        de tu campo y tenerlos en la palma de la mano.</p>
+                  </div>
                 </div>
+                <div class="card">
+                  <img src="img/monitorizacion.jpg" class="card-img-top" alt="monitorización">
+                  <div class="card-body">
+                    <h4 class="card-title">MONITORIZACIÓN</h4>
+                    <p class="card-text">Con nuestros dispositivos puedes monitorizar tu campo
+                        por completo sin tener que ir al mismo.</p>
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="img/mejorar.jpg" class="card-img-top" alt="mejoras">
+                  <div class="card-body">
+                    <h4 class="card-title">MEJORAS</h4>
+                    <p class="card-text">Con los datos que recogen nuestros dispositivos puede
+                        mejorar considerablemente sus cultivos.</p>
+                  </div>
+                </div>
+              </div>
 
-                <!-- BOX 3 ----------------------------->
-                <div class="box">
-                    <div class="iconBx">
-                        <img src="img/icon3.png" alt="">
-                    </div>
-                    <div class="content">
-                        <h2>Mejoras</h2>
-                        <p>Con los datos que recogen nuestros dispositivos puede
-                            mejorar considerablemente sus cultivos.
-                        </p>
-                    </div>
-                </div>
+        </section>
+
+        <section id="contacto" class="row justify-content-end">
+            <div class="col col-xs-12 col-md-6 p-5 bg-white d-flex flex-column justify-content-center align-items-center  align-items-md-start text-left">
+                <h3>CONTACTE</h3>
+                <br>
+                <h4 class="mb-3">Giménez López, José Luis</h4>
+ 
+                <p>Pulse para contactar por</p>
+                <a role="button" href="mailto:jogilo@upvnet.upv.es?Subject=Dudas%20de%20GTI" class="btn btn-success d-flex align-items-center justify-content-center">Correo Electrónico</a>
+
+                <p class="mt-3"> O si lo prefiere llámenos </p>
+                <a role="button" href="tel:+34963877000" class="btn btn-success d-flex align-items-center justify-content-center">Llamar</a>
 
             </div>
-        </div>
-    </section>
-    <!-- Stats ------------------------------------------------------------------------------------->
-    <section class="sec stats">
-        <div class="content">
-            <div class="mxw800p">
-                <h3>Nuestros logros</h3>
-                <p>Gracias a nuestros servicios miles de clientes han podido
-                    favorecer su cosecha y mejorar sus ingresos considerablemente,
-                    de esta forma todos nuestros cliente han podido tener todo más
-                    controlado sin tener que estar físicamente en el campo.
-                </p>
-            </div>
-            <div class="statsBox">
-                <div class="box">
-                    <h2>1200+</h2>
-                    <h4>Sondas</h4>
-                </div>
-                <div class="box">
-                    <h2>800+</h2>
-                    <h4>Projectos</h4>
-                </div>
-                <div class="box">
-                    <h2>500+</h2>
-                    <h4>Clientes agradecidos</h4>
-                </div>
-            </div>
-        </div>
+            
+        </section>
+
+        <footer class="row bg-light text-muted d-flex align-items-center px-5">
+
+            <hp>©2020 GTI | Todos los derechos reservados</hp>
+
+        </footer>
+
     </section>
 
-    <!-- Portafolio ------------------------------------------------------------------------------------->
-    
-    <section class="sec work" id="portfolio">
-        <div class="content">
-            <div class="mxw800p">
-                <h3>Trabajos recientes</h3>
-                <p>Aquí podemos ver algunos clientes que disfrutan de nuestros servicios.</p>
-            </div>
-            <div class="workBx">
-                <div class="brand cliente1">
-                    <a href="#"><h2>Maria Perez</h2></a>
-                </div>
-                <div class="brand cliente2">
-                    <a href="#"><h2>Antonio Ramirez</h2></a>
-                </div>
-                <div class="brand cliente3">
-                    <a href="#"><h2>Mario Jimenez</h2></a>
-                </div>
-                <div class="brand cliente4">
-                    <a href="#"><h2>Marta Naranjo</h2></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact ------------------------------------------------------------------------------------->
-
-    <section class="sec contact" id="contact">
-        <div class="content">
-            <div class="mxw800p">
-                <h3>Envianos un mensaje</h3>
-                <p>Resolvemos todas tus dudas en menos de 48h</p>
-            </div>
-            <div class="contactForm">
-                <form action="">
-                    <div class="row100">
-                        <div class="inputBx50">
-                            <input type="text" name="" placeholder="Nombre completo">
-                        </div>
-                        <div class="inputBx50">
-                            <input type="text" name="" placeholder="Correo electrónico">
-                        </div>
-                    </div>
-                    <div class="row100">
-                        <div class="inputBx100">
-                            <textarea name="" placeholder="Mensaje"></textarea>
-                        </div>
-                    </div>
-                    <div class="row100">
-                        <div class="inputBx100">
-                            <input type="submit" name="" value="Enviar">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="sci">
-                <ul>
-                    <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
-                    <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
-                    <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
-                </ul>
-            </div>
-            <p class="copyright">©2020 <a href="#">TAO Grupo1</a> | Todos los derechos reservados</p>
-        </div>
-    </section>
-
-
-    <!-- SCRIPT ------------------------------------------------------------------------------------->
-
-    <!-- Este script le pone una clase al header cuando el scroll Y es mayor a 0 -->
-    <script type="text/javascript">
-        window.addEventListener("scroll", function(){
-            var header = document.querySelector("header");
-            header.classList.toggle("sticky", window.scrollY > 0);
-        })
-
-        function toggle(){
-            var header = document.querySelector("header");
-            header.classList.toggle("active");
-        }
-
-    </script>
+    <!----------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!----------------------------------------------------------------------------------------------->
 
 </body>
 </html>

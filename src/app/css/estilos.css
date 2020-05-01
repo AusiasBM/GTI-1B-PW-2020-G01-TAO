@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    /* Sirve para que haga el scroll suave*/
+    scroll-behavior: smooth;
+}
+
+
+h1{
+    font-size: 80px;
+    font-weight: 700;
+}
+
+h3{
+    color: rgb(130, 0, 83);
+    font-size: 40px;
+    font-weight: 200;
+}
+
+h4{
+    color: rgb(130, 0, 83);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+p{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+h5{
+    color: red;
+    font-weight: 700;
+}
+
+.container-fluid{
+    height: 100vh;
+}
+
+a{
+    color: rgb(130, 0, 83);
+}
+
+a:hover{
+    color: gray;
+}
+
+
+/* Linea utilizada para el menú principal,
+de esta forma distinguimos el inicio de sesión, de el menú*/
+.linea {
+    border-left: 1px solid black;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     INICIO APP     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#inicio_app{
+    padding-top: 100px;
+}
+
+#map{
+    height: 70vh;
+}
+
+#select-parcelas{
+    width: 10em;
+}
+
+.chart-container {
+    position: relative;
+    width: 80vw;
+    height: 50vh;
+    margin: 0 auto;
+}
+
+#tostadas{
+    background: white;
+}
+
+.toast-body{
+    background: white;
+}
+
+#selectorInicio{
+    height: 3em;
+}
+
+#selectorFin{
+    height: 3em;
+}
+
+#select-parcelas-admin{
+    width: 10em;
+    height: 3em;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  FIN   INICIO APP     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     PERFIL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#perfil{
+    padding-top: 100px;
+}
+
+#perfil img{
+    width: 200px;
+}
+
+.info_perfil{
+    padding-left: 15em;
+    padding-right: 15em;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  FIN PERFIL     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Ahora vamos a poner las modificaciones que se haran cuando la página cambie de tamaño de pantalla
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/* Aquí le decimos como será hasta que la página pase de 768px */
+@media (max-width: 768px) {
+
+    /* Aquí estamos cambiando la linea que separa el botón del login con el menú,
+    de forma que en vez de estar a la derecha del botón, está en la parte superior*/
+    .linea {
+        border-left: 0px;
+        border-top: 1px solid black;
+    }
+
+    /* Modificamos el texto para que sea más legible */
+    h1{
+        font-size: 60px;
+    }
+
+    .info_perfil{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Aquí le decimos como será cuando la página pase de 1400px */
+@media (min-width: 1400px) {
+
+    /* Modificamos el texto para que sea más legible */
+    h1{
+        font-size: 140px;
+    }
+
+    h3{
+        font-size: 60px;
+        font-weight: 200;
+    }
+
+    h4{
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    p{
+        font-size: 25px;
+        font-weight: 300;
+    }
+
+
+}
