@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    /* Sirve para que haga el scroll suave*/
+    scroll-behavior: smooth;
+}
+
+.container-fluid{
+    height: 100vh;
+}
+
+h1{
+    font-size: 80px;
+    font-weight: 700;
+}
+
+h3{
+    color: rgb(130, 0, 83);
+    font-size: 40px;
+    font-weight: 200;
+}
+
+h4{
+    color: rgb(130, 0, 83);
+    font-size: 18px;
+    font-weight: 700; 
+}
+
+p{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+h5{
+    color: red;
+    font-weight: 700;
+}
+
+
+
+/* Linea utilizada para el menú principal, 
+de esta forma distinguimos el inicio de sesión, de el menú*/
+.linea {
+    border-left: 1px solid black;
+}
+
+.navbar{
+    z-index: 3000;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     BANNER     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/* Aquí estamos poniendo el fondo del banner y haciendo que ocupe todo el ancho y alto de la página */
+.banner{
+    min-height: 100vh;
+}
+
+.banner div{
+    background: url(../img/bg-min.jpg) no-repeat; 
+    background-position-x: center;
+    background-position-y: top;
+    background-size: cover;
+}
+
+/* Los estilos del botón los hemos puesto mediante bootstrap, aquí solo ponemos el tamaño */
+.btn{
+    width: 300px;
+    height: 60px;
+}
+
+/* Estos estilos se pondran cuando el ratón este encima del botón */
+.banner .btn-success:hover{
+    border: 1px solid white;
+    background: none;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   FIN  BANNER     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     GTI     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#gti{  
+    background: url(../img/gti.jpg) no-repeat; 
+    background-position-x: center;
+    background-position-y: top;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  FIN   GTI     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     SERVICIOS     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#servicios{
+    min-height: 100vh;
+}
+
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  FIN   SERVICIOS     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     CONTACTO     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#contacto{
+    background: url(../img/contacto.jpg) no-repeat; 
+    background-position-x: center;
+    background-position-y: top;
+    background-size: cover;
+    min-height: 90vh;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     CONTACTO     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     FOOTER     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+footer{
+    min-height: 10vh;
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     FOOTER     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Ahora vamos a poner las modificaciones que se haran cuando la página cambie de tamaño de pantalla
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/* Aquí le decimos como será hasta que la página pase de 768px */
+@media (max-width: 768px) {
+
+    /* Aquí estamos cambiando la linea que separa el botón del login con el menú,
+    de forma que en vez de estar a la derecha del botón, está en la parte superior*/
+    .linea {
+        border-left: 0px;
+        border-top: 1px solid black;
+    }
+
+    /* Modificamos el texto para que sea más legible */
+    h1{
+        font-size: 60px;
+    }
+
+}
+
+/* Aquí le decimos como será cuando la página pase de 1400px */
+@media (min-width: 1400px) {
+
+    /* Modificamos el texto para que sea más legible */    
+    h1{
+        font-size: 140px;
+    }
+
+    h3{
+        font-size: 60px;
+        font-weight: 200;
+    }
+
+    h4{
+        font-size: 30px;
+        font-weight: 700; 
+    }
+    
+    p{
+        font-size: 25px;
+        font-weight: 300;
+    }
+
+    #contacto a{
+        font-size: 25px;
+    }
+
+    /* Hacemos que el botón sea más grande para que se vea mejor */
+    .btn{
+        width: 500px;
+        height: 100px;
+    }
+
+    
+}

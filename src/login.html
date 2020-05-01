@@ -1,75 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>GTI | TAO - Login</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI | INICIO DE SESIÓN</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="img/logoGTI.svg" sizes="64x64">
 </head>
 <body>
-    <header>
-        <img src="img/logoGTI.svg" alt="Grado en Tecnologías Interactivas">
-        <div class="menu-sesion">
-            <nav class='menu'>
-                <span class='toggle'>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
-                <div class='menuContent'>
-                    <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="index.html/sobre-nosotros">Sobre Nosotros</a></li>
-                    <li><a href="index.html/#composicion">Caraterísticas</a></li>
-                    <li><a href="index.html/#contacto">Contacto</a></li>
+
+    <section class="container-fluid">
+        <!-- Header ------------------------------------------------------------------------------------->
+        <header class="row">
+            <nav class="col navbar navbar-expand-md fixed-top navbar-light bg-light">
+                <a class="navbar-brand p-0" href="index.html">
+                    <img src="img/logoGTI.svg" width="130" alt="logotipo GTI">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">INICIO<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gti">GTI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicios">SERVICIOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">CONTACTO</a>
+                        </li>
+                        <li class="nav-item linea active">
+                            <a class="nav-link" href="login.html">INICIO SESIÓN</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
-            <button onclick="location.href='login.html';" type="button" class="inicio-sesion">INICIAR SESIÓN</button>
-        </div>
-    </header>
 
+        </header>
 
+        <!-- Login ------------------------------------------------------------------------------------->
 
-    <section class="section-ancla">
-        <form class="login" onsubmit="enviar(event)" id="login" method="POST">
-            <h2>Iniciar Sesión</h2>
-            <p id="errorLogin"></p>
-            <input type="text" name="nombre_de_usuario" placeholder="Usuario" required>
-            <input type="password" name="contraseña" placeholder="Contraseña" required>
-            <input type="submit" name="" value="ENTRAR">
-        </form>
-    
-        <div id="textoAncla">
-            <h1>TU CAMPO MÁS INTELIGENTE QUE NUNCA</h1>
-        </div>
-    
-        <script src="js/login.js"></script>
+        <section id="gti" class="row">
+
+            <div class="col-xs-12 col-md-6 p-5 bg-white d-flex flex-column justify-content-center align-items-center text-center align-items-md-start text-md-left">
+                <h3>INICIO DE SESIÓN</h3>
+                <p>TU CAMPO MÁS INTELIGENTE QUE NUNCA</p>
+                <h5 id="errorLogin"></h5>
+
+                <form onsubmit="enviar(event)" id="login" method="POST">
+                    <div class="form-group">
+                        <label for="label_usuario">Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="label_usuario" name="nombre_de_usuario" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="label_contraseña">Contraseña</label>
+                        <input type="password" class="form-control" name="contraseña" id="label_contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">ENTRAR</button>
+                </form>
+
+            </div>
+
+        </section>
+
     </section>
 
-    <footer>
-        <div>
-            <p>¿PREGUNTAS? Llama al 902 543 685</p>
-        </div>
-        <div>
-            <p>&copy;2020 TAO Grupo1 | Todos los derechos reservados</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#"><img src="img/icons8-facebook-80.png" alt="Facebook"></a></li>
-                <li><a href="#"><img src="img/icons8-twitter-64.png" alt="Twitter"></a></li>
-                <li><a href="#"><img src="img/icons8-youtube-80.png" alt="Youtube"></a></li>
-            </ul>
-        </nav>
-    </footer>
+    <!----------------------------------------------------------------------------------------------->
+    <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
+    <!----------------------------------------------------------------------------------------------->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script>
-        $('.toggle').on('click', function() {
-                $('.menu').toggleClass('active');
-            });
-    </script>
 
 </body>
 </html>

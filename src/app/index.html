@@ -1,18 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-100" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI | Aplicación</title>
     <script src="js/restringir-acceso.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="img/logoGTI.svg" sizes="64x64">
 </head>
 <body style="display: none">
 
-    <a href="javascript:fetch('../api/v1.0/sesion', {method: 'delete'}).then(function(respuesta) {
-        if (respuesta.status == 200){
-          location.href = '..';
+    <section class="container-fluid">
+
+        <header class="row">
+            <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
+                <a class="navbar-brand p-0" href="/index.html">
+                    <img src="img/logoGTI.svg" width="130" alt="logotipo GTI">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">INICIO<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="perfil.html">PERFIL</a>
+                        </li>
+                        <li class="nav-item linea">
+                            <a class="nav-link" href="javascript:fetch('../api/v1.0/sesion', {method: 'delete'}).then(function(respuesta) {
+                              if (respuesta.status == 200){
+                                location.href = '..';
+                              }
+                            })">CERRAR SESIÓN
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+
+        <section id="inicio_app" class="container">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-mapa-tab" data-toggle="tab" href="#nav-mapa" role="tab" aria-controls="nav-mapa" aria-selected="true">Mapa</a>
+                    <a class="nav-item nav-link" id="nav-grafica-tab" data-toggle="tab" href="#nav-grafica" role="tab" aria-controls="nav-grafica" aria-selected="false">Gráfica</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <!----------------------------- Mapa ----------------------------------------------------------->
+                <div class="tab-pane fade show active" id="nav-mapa" role="tabpanel" aria-labelledby="nav-mapa-tab">
+                    <!-- Select -->
+                    <div class="row">
+                        <p class="pt-3 mx-3">Elige una parcela:</p>
+                        <select class="my-2 btn btn-success" id="select-parcelas"></select>
+                        <p class="text-muted pt-3 ml-4">Para ver las medidas de una sonda, tiene que pulsar sobre los iconos rojos</p>
+                    </div>
+                    <!-- Mapa -->
+                    <div class="row">
+                        <div id="map" class="col"></div>
+                    </div>
+                </div>
+                <!----------------------------- FIN Mapa ----------------------------------------------------------->
+                <!----------------------------- Gráfica ---------------------------------------------------------->
+                <div class="tab-pane fade" id="nav-grafica" role="tabpanel" aria-labelledby="nav-grafica-tab">
+                    <div aria-live="polite" aria-atomic="true" class="position-static">
+                        <div id="tostadas" class="row mt-2 d-flex justify-content-center"></div>
+                    </div>
+                    <div class="row m-3 d-flex justify-content-center">
+                        <p id="sonda_grafica" class="col-10 mr-3 pt-2 font-weight-bold border-bottom"></p>
+                        <p class="text-muted">Filtra para ver las medidas desde la fecha de inicio a la fecha final</p>
+                        <div class="row d-flex justify-content-md-center justify-content-center">
+                            <div class="col-10 col-md-6 pt-2 d-flex">
+                                <p class="pt-2 mr-2">Fecha Inicio</p>
+                                <input id="selectorInicio" type="date" class="btn btn-success mr-2"
+                                       onchange="ControladorMedic.modelo.filtrar('fechaIni', this.value)">
+                            </div>
+                            <div class="col-10 col-md-6 pt-2 d-flex">
+                                <p class="pt-2 mr-2">Fecha Fin</p>
+                                <input id="selectorFin" type="date" class="btn btn-success"
+                                       onchange="ControladorMedic.modelo.filtrar('fechaFin', this.value)">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row chart-container">
+                        <!-- Canvas -->
+                        <canvas id="chart"></canvas>
+                    </div>
+                </div>
+                <!----------------------------- FIN Gráfica ----------------------------------------------------------->
+                <div class="tab-pane fade" id="nav-administrador" role="tabpanel" aria-labelledby="nav-administrador-tab">
+                    <h2 class="row mt-2 d-flex justify-content-center">Administrador de parcelas</h2>
+                    <hr>
+                    <div class="row px-md-5 d-flex justify-content-center">
+                        <div class="col-10 col-md mt-2 d-flex">
+                            <p class="pt-3 mr-2">Elige una parcela:</p>
+                            <select class="btn btn-success" id="select-parcelas-admin"></select>
+                        </div>
+                        <button type="button" class="btn btn-danger mt-3 mt-md-0">Eliminar Parcela</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+
+    <!----------------------------------- JAVASCRIPT ------------------------------------------------------------>
+
+    <!-- Administrador -->
+    <script src="js/administrador.js"></script>
+    <!-- Crea el mapa -->
+    <script src="js/mapa.js"></script>
+    <!-- Pinta las Parcelas -->
+    <script src="js/parcels.js"></script>
+    <!-- Pinta las sondas -->
+    <script src="js/sondas.js"></script>
+    <!-- Librería de la Gráfica -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <!-- Pinta las gráficas -->
+    <script src="js/mediciones.js"></script>
+
+    <script>
+
+        VistaSelectorMedic.preparar();
+        ControladorMedic.iniciar();
+        // En la siguiente linea logramos que la gráfica se ponga en 0
+        ControladorMedic.modelo.filtrar('idSonda', -1 + "");
+
+
+        async function iniciar(){
+
+            VistaSelectorParcels.preparar("select-parcelas");
+            await ControladorParcels.iniciar();
+            VistaSelectorParcels.selector.onchange = function () {
+                ControladorParcels.vista.visualizarParcela(this.value);
+                ControladorSoda.vista.visualizarSonda(this.value);
+            }
+
+            ControladorSoda.iniciar();
+
+            VistaSelectorAdministrador.preparar();
+            ControladorAdministrador.iniciar();
         }
-    })">Cerrar sesión</a>
-    <h1 id="nombreUser">BIENVENIDO</h1>
+    </script>
+
+    <!-- Carga la api de google maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!----------------------------------------------------------------------------------------------->
 
 
 </body>
