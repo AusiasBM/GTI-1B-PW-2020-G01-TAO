@@ -58,7 +58,7 @@
                     <!-- Select -->
                     <div class="row">
                         <p class="pt-3 mx-3">Elige una parcela:</p>
-                        <select class="my-2 btn btn-success" id="select-parcelas"></select>
+                        <select class="my-2 disenyoSelector" id="select-parcelas"></select>
                         <p class="text-muted pt-3 ml-4">Para ver las medidas de una sonda, tiene que pulsar sobre los iconos rojos</p>
                     </div>
                     <!-- Mapa -->
@@ -69,22 +69,28 @@
                 <!----------------------------- FIN Mapa ----------------------------------------------------------->
                 <!----------------------------- Gráfica ---------------------------------------------------------->
                 <div class="tab-pane fade" id="nav-grafica" role="tabpanel" aria-labelledby="nav-grafica-tab">
-                    <div aria-live="polite" aria-atomic="true" class="position-static">
-                        <div id="tostadas" class="row mt-2 d-flex justify-content-center"></div>
-                    </div>
+
                     <div class="row m-3 d-flex justify-content-center">
                         <p id="sonda_grafica" class="col-10 mr-3 pt-2 font-weight-bold border-bottom"></p>
-                        <p class="text-muted">Filtra para ver las medidas desde la fecha de inicio a la fecha final</p>
-                        <div class="row d-flex justify-content-md-center justify-content-center">
-                            <div class="col-10 col-md-6 pt-2 d-flex">
-                                <p class="pt-2 mr-2">Fecha Inicio</p>
-                                <input id="selectorInicio" type="date" class="btn btn-success mr-2"
+                        <p class="text-muted">Filtra para ver las medidas desde la fecha de inicio a la fecha final o pulsa para ver los avisos</p>
+                        <div class="row d-flex justify-content-md-center justify-content-center flex-grow-1">
+                            <div class="col-10 col-md-4 pt-2 d-flex">
+                                <p class="mr-2 mt-2">Fecha Inicio</p>
+                                <input id="selectorInicio" type="date" class="disenyoSelector mr-2"
                                        onchange="ControladorMedic.modelo.filtrar('fechaIni', this.value)">
                             </div>
-                            <div class="col-10 col-md-6 pt-2 d-flex">
+                            <div class="col-10 col-md-4 pt-2 d-flex">
                                 <p class="pt-2 mr-2">Fecha Fin</p>
-                                <input id="selectorFin" type="date" class="btn btn-success"
+                                <input id="selectorFin" type="date" class="disenyoSelector"
                                        onchange="ControladorMedic.modelo.filtrar('fechaFin', this.value)">
+                            </div>
+                            <button class="col-10 col-md-2 btn btn-danger" type="button" data-toggle="collapse" data-target="#desplegableAvisos" aria-expanded="false" aria-controls="desplegableAvisos">
+                                AVISOS
+                            </button>
+                            <div aria-live="polite" aria-atomic="true" class="position-static col-12 d-flex justify-content-center">
+                                <div class="collapse" id="desplegableAvisos">
+                                    <div id="tostadas" class="col-12 card card-body row mt-2 d-flex flex-row justify-content-center"></div>
+                                </div>
                             </div>
                         </div>
 
