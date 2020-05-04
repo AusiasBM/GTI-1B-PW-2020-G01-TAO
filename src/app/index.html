@@ -11,6 +11,8 @@
 </head>
 <body style="display: none">
 
+    <div class="loader"></div>
+
     <section class="container-fluid">
 
         <header class="row">
@@ -72,29 +74,41 @@
 
                     <div class="row m-3 d-flex justify-content-center">
                         <p id="sonda_grafica" class="col-10 mr-3 pt-2 font-weight-bold border-bottom"></p>
-                        <p class="text-muted">Filtra para ver las medidas desde la fecha de inicio a la fecha final o pulsa para ver los avisos</p>
-                        <div class="row d-flex justify-content-md-center justify-content-center flex-grow-1">
-                            <div class="col-10 col-md-4 pt-2 d-flex">
-                                <p class="mr-2 mt-2">Fecha Inicio</p>
-                                <input id="selectorInicio" type="date" class="disenyoSelector mr-2"
-                                       onchange="ControladorMedic.modelo.filtrar('fechaIni', this.value)">
-                            </div>
-                            <div class="col-10 col-md-4 pt-2 d-flex">
-                                <p class="pt-2 mr-2">Fecha Fin</p>
-                                <input id="selectorFin" type="date" class="disenyoSelector"
-                                       onchange="ControladorMedic.modelo.filtrar('fechaFin', this.value)">
-                            </div>
-                            <button class="col-10 col-md-2 btn btn-danger" type="button" data-toggle="collapse" data-target="#desplegableAvisos" aria-expanded="false" aria-controls="desplegableAvisos">
-                                AVISOS
-                            </button>
-                            <div aria-live="polite" aria-atomic="true" class="position-static col-12 d-flex justify-content-center">
-                                <div class="collapse" id="desplegableAvisos">
-                                    <div id="tostadas" class="col-12 card card-body row mt-2 d-flex flex-row justify-content-center"></div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+
+                        <button class="col-7 col-md-2 btn btn-info mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
+                            Filtros
+                        </button>
+
+                        <button class="col-7 col-md-2 btn btn-danger mt-2 mt-md-0" type="button" data-toggle="collapse" data-target="#desplegableAvisos" aria-expanded="false" aria-controls="desplegableAvisos">
+                            AVISOS
+                        </button>
+
+                    </div>
+
+                    <div aria-live="polite" aria-atomic="true" class="position-static mt-3 col-12">
+                        <div class="collapse" id="desplegableFiltros">
+                            <div class="d-flex flex-column flex-md-row justify-content-center">
+                                <div class="col-12 col-md-4 pt-2 d-flex flex-row">
+                                    <p class="mr-2 mt-2">Fecha Inicio</p>
+                                    <input id="selectorInicio" type="date" class="disenyoSelector mr-2"
+                                           onchange="ControladorMedic.modelo.filtrar('fechaIni', this.value)">
+                                </div>
+                                <div class="col-12 col-md-4 pt-2 d-flex flex-row">
+                                    <p class="pt-2 mr-2">Fecha Fin</p>
+                                    <input id="selectorFin" type="date" class="disenyoSelector"
+                                           onchange="ControladorMedic.modelo.filtrar('fechaFin', this.value)">
                                 </div>
                             </div>
                         </div>
 
+                        <div class="collapse col-12" id="desplegableAvisos">
+                            <div id="tostadas" class="col-12 card card-body row mt-2 d-flex flex-row justify-content-center"></div>
+                        </div>
                     </div>
+
                     <div class="row chart-container">
                         <!-- Canvas -->
                         <canvas id="chart"></canvas>
@@ -138,9 +152,6 @@
 
         VistaSelectorMedic.preparar();
         ControladorMedic.iniciar();
-        // En la siguiente linea logramos que la gráfica se ponga en 0
-        ControladorMedic.modelo.filtrar('idSonda', -1 + "");
-
 
         async function iniciar(){
 
@@ -155,6 +166,9 @@
 
             VistaSelectorAdministrador.preparar();
             ControladorAdministrador.iniciar();
+
+            // En la siguiente linea logramos que la gráfica se ponga en 0
+            ControladorMedic.modelo.filtrar('idSonda', -1 + "");
         }
     </script>
 
