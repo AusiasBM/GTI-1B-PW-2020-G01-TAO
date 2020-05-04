@@ -45,7 +45,7 @@ h5{
 /* Linea utilizada para el menú principal, 
 de esta forma distinguimos el inicio de sesión, de el menú*/
 .linea {
-    border-left: 1px solid black;
+    border-left: 1px solid grey;
 }
 
 .navbar{
@@ -136,7 +136,7 @@ Ahora vamos a poner las modificaciones que se haran cuando la página cambie de 
     de forma que en vez de estar a la derecha del botón, está en la parte superior*/
     .linea {
         border-left: 0px;
-        border-top: 1px solid black;
+        border-top: 1px solid grey;
     }
 
     /* Modificamos el texto para que sea más legible */

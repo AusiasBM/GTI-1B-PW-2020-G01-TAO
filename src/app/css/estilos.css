@@ -9,7 +9,6 @@ html{
     scroll-behavior: smooth;
 }
 
-
 h1{
     font-size: 80px;
     font-weight: 700;
@@ -72,9 +71,9 @@ de esta forma distinguimos el inicio de sesión, de el menú*/
 
 .chart-container {
     position: relative;
-    width: 80vw;
+    width: 100%;
     height: 50vh;
-    margin: 0 auto;
+    margin: 0;
 }
 
 #tostadas{
@@ -96,6 +95,15 @@ de esta forma distinguimos el inicio de sesión, de el menú*/
 #select-parcelas-admin{
     width: 10em;
     height: 3em;
+}
+
+.disenyoSelector{
+    background: rgb(130, 0, 83);
+    color: white;
+    border: rgb(130, 0, 83);
+    padding-left: 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  FIN   INICIO APP     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/

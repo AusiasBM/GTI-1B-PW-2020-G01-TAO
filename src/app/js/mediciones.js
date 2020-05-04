@@ -139,14 +139,14 @@ let VistaSelectorMedic = {
             //console.log(numMedidas);
             if (ControladorMedic.modelo.filtros.fechaFin == 0 && ControladorMedic.modelo.filtros.fechaIni == 0){
                 if (numMedidas < 3){
-                    horas.push(mediciones[i].dia + ' - ' + mediciones[i].hora);
+                    horas.push(mediciones[i].dia);
                     medidasHum.push(parseFloat(mediciones[i].humedad));
                     medidasSal.push( parseFloat (mediciones[i].salinidad));
                     medidasLum.push( parseFloat (mediciones[i].luminosidad));
                     medidasTemp.push( parseFloat (mediciones[i].temperatura));
                 }
             }else {
-                horas.push(mediciones[i].dia + ' - ' + mediciones[i].hora);
+                horas.push(mediciones[i].dia);
                 medidasHum.push(parseFloat(mediciones[i].humedad));
                 medidasSal.push( parseFloat (mediciones[i].salinidad));
                 medidasLum.push( parseFloat (mediciones[i].luminosidad));
@@ -180,17 +180,17 @@ let VistaSelectorMedic = {
         });
     },
     crearTostada : function (tituloElemento, contenidoTostada) {
-        this.totadas.innerHTML += `<div role="alert" aria-live="assertive" aria-atomic="true" class="toast mx-1" data-autohide="false">
-                                <div class="toast-header">
-                                <strong class="mr-auto">${tituloElemento}</strong>
-                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="toast-body">
-                                ${contenidoTostada}
-                            </div>
-                            </div>`;
+        this.totadas.innerHTML += `<div role="alert" aria-live="assertive" aria-atomic="true" class="toast mx-1 bg-danger" data-autohide="false">
+                                        <div class="toast-header bg-danger">
+                                        <strong class="mr-auto text-white">${tituloElemento}</strong>
+                                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="toast-body bg-danger text-white">
+                                            ${contenidoTostada}
+                                        </div>
+                                    </div>`;
     },
 };
 
