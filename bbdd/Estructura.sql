@@ -4,9 +4,9 @@ CREATE table rol(
     nombre     VARCHAR(30)
  );
  
- INSERT INTO rol(nombre) VALUES 
-                            ("Cooperativa"), 
-                            ("Administrador"), 
+ INSERT INTO rol(nombre) VALUES
+                            ("técnico"),
+                            ("Cooperativa"),
                             ("Usuario");
 
 /*---------- TABLA USUARIOS----------*/
@@ -24,7 +24,21 @@ INSERT INTO usuarios(nombre, contraseña, rol) VALUES
                                                 ("Mario", "villalonga", 1), 
                                                 ("Pedro", "gandia", 2);
 
-/*---------- TABLA PARCELAS----------*/
+/*---------- TABLA CLIENTES ----------*/
+
+CREATE TABLE clientes(
+    idCooperativa       int(11) DEFAULT NULL,
+    idUsuario           int(11) DEFAULT NULL,
+    FOREIGN KEY (idCooperativa) references usuarios(idUsuario),
+    FOREIGN KEY (idUsuario) references usuarios(idUsuario)
+);
+
+INSERT INTO clientes(idCooperativa, idUsuario) VALUES
+                                                (4, 1),
+                                                (4, 2);
+
+
+/*---------- TABLA PARCELAS ----------*/
 
 CREATE TABLE parcelas(
     idParcela   INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
@@ -46,7 +60,7 @@ CREATE TABLE usuarios_parcelas(
     idUsuario       int(11) DEFAULT NULL,
     idParcela       int(11) DEFAULT NULL,
     FOREIGN KEY (idUsuario) references usuarios(idUsuario),
-    FOREIGN KEY (idParcela) references parcelas(idParcela)
+    FOREIGN KEY (idParcela) references parcelas(idParcela) ON DELETE CASCADE
 );
 
 INSERT INTO usuarios_parcelas (idUsuario, idParcela) VALUES 
@@ -63,7 +77,8 @@ CREATE TABLE vertices(
     idParcela       int(11) DEFAULT NULL,
     latitud         double NOT NULL,
     longitud        double NOT NULL,
-    FOREIGN KEY (idParcela) references parcelas(idParcela));
+    FOREIGN KEY (idParcela) references parcelas(idParcela) ON DELETE CASCADE
+);
 
 INSERT INTO vertices(idParcela, latitud, longitud) VALUES 
                                                     (1, 38.997381, -0.169717),
@@ -90,7 +105,7 @@ CREATE TABLE posiciones(
     idParcela       int(11) DEFAULT NULL,
     latitud         double NOT NULL,
     longitud        double NOT NULL,
-    FOREIGN KEY (idParcela) references parcelas(idParcela)
+    FOREIGN KEY (idParcela) references parcelas(idParcela) ON DELETE CASCADE
 );
 
 INSERT INTO posiciones(idParcela, latitud, longitud) VALUES 
@@ -113,7 +128,7 @@ CREATE TABLE mediciones(
     salinidad       int(11) DEFAULT NULL,
     temperatura     int(11) DEFAULT NULL,
     luminosidad     int(11) DEFAULT NULL,
-    FOREIGN KEY (idPosicion) references posiciones(idPosicion)
+    FOREIGN KEY (idPosicion) references posiciones(idPosicion) ON DELETE CASCADE
 );
 
 INSERT INTO mediciones(idPosicion, dia, hora, humedad, salinidad, temperatura, luminosidad) VALUES 
@@ -166,7 +181,7 @@ INSERT INTO mediciones(idPosicion, dia, hora, humedad, salinidad, temperatura, l
 CREATE TABLE sondas(
     idSonda         INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
     idPosicion      int(11) NOT NULL,
-    FOREIGN KEY (idPosicion) references posiciones(idPosicion)
+    FOREIGN KEY (idPosicion) references posiciones(idPosicion) ON DELETE CASCADE
 );
 
 INSERT INTO sondas(idPosicion) VALUES 
