@@ -40,7 +40,7 @@ let VistaSelectorTecnicoUsuario = {
                                                 <div class="card-body">
                                                     <div class="col-12 d-flex justify-content-between border-bottom mb-4">
                                                         <h4 class="card-title">${nombreParcela}</h4>
-                                                        <div class="col-2 colorParcelas" style="background-color: ${color}"></div>
+                                                        <div class="col-2 colorParcelas" id="colorParcela" style="background-color: ${color}"></div>
                                                     </div>
                                                     <div class="d-flex">
                                                         <button type="button" class="btn btn-outline-info mr-auto" onclick="modificarParcela(${idParcela})">Modificar</button>

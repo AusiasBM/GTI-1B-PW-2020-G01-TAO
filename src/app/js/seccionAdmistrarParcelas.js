@@ -29,15 +29,15 @@ function modificarParcela(idParcela) {
         id = idParcela;
         parcela = document.getElementById(idParcela).innerHTML.toString();
         document.getElementById(idParcela).innerHTML = `<div class="card-body">
-                                <div class="d-flex justify-content-between border-bottom mb-4">
-                                    <input type="text" class="card-title col-9" id="tituloCampo" placeholder="Nombre parcela">
-                                    <input type="color" value="#1fe271">
-                                </div>
-                                <div class="d-flex">
-                                    <button type="button" class="btn btn-outline-success m-auto">Modificar</button>
-                                    <button type="button" class="btn btn-outline-danger" onclick="descartar()">Descartar</button>
-                                </div>
-                            </div>`
+                                                            <div class="d-flex justify-content-between border-bottom mb-4">
+                                                                <input type="text" class="card-title col-9" id="tituloCampoModificandose" placeholder="Nombre parcela">
+                                                                <input type="color" value="#1fe271" id="colorParcelaModificandose">
+                                                            </div>
+                                                            <div class="d-flex">
+                                                                <button type="button" class="btn btn-outline-success mr-auto" onclick="generarModificacion()">Modificar</button>
+                                                                <button type="button" class="btn btn-outline-danger" onclick="descartar()">Descartar</button>
+                                                            </div>
+                                                        </div>`
     }else{
         alert("Estás modificando o creando una parcela")
     }
@@ -53,11 +53,11 @@ function anyadirParcela(seccion) {
         document.getElementById(seccion).innerHTML += `<div class="card col-md-3 mt-3 border-success" id="anyadir">
                                                         <div class="card-body">
                                                             <div class="d-flex justify-content-between border-bottom border-success mb-4">
-                                                                <input type="text" class="card-title col-9" id="tituloCampo" placeholder="Nombre Parcela">
-                                                                <input type="color" value="#1fe271">
+                                                                <input type="text" class="card-title col-9" id="tituloCampoCreandose" placeholder="Nombre Parcela">
+                                                                <input type="color" id="colorParcelaCreandose" value="#1fe271">
                                                             </div>
                                                             <div class="d-flex">
-                                                                <button type="button" class="btn btn-outline-success mr-auto">Crear</button>
+                                                                <button type="button" class="btn btn-outline-success mr-auto" onclick="generarCreacion()">Crear</button>
                                                                 <button type="button" class="btn btn-outline-danger" onclick="descartar()">Descartar</button>
                                                             </div>
                                                         </div>
@@ -66,15 +66,25 @@ function anyadirParcela(seccion) {
         alert("Estas modificando o creando una parcela")
     }
 
-
 }
 
 
 function descartar() {
 
-    console.log(document.getElementById(parcela))
+    //console.log(document.getElementById(parcela))
     document.getElementById(id).innerHTML = parcela;
     id = null;
     parcela = null;
 
+}
+
+function generarCreacion() {
+    console.log(document.getElementById("tituloCampoCreandose").value)
+    console.log(document.getElementById("colorParcelaCreandose").value)
+}
+
+
+function generarModificacion() {
+    console.log(document.getElementById("tituloCampoModificandose").value)
+    console.log(document.getElementById("colorParcelaModificandose").value)
 }
