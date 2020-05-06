@@ -106,6 +106,10 @@ de esta forma distinguimos el inicio de sesión, de el menú*/
     border-top-right-radius: 8px;
 }
 
+.colorParcelas{
+    height: 1rem;
+}
+
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  FIN   INICIO APP     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     PERFIL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/

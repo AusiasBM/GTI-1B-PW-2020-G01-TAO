@@ -11,8 +11,6 @@
 </head>
 <body style="display: none">
 
-    <div class="loader"></div>
-
     <section class="container-fluid">
 
         <header class="row">
@@ -48,10 +46,18 @@
         </header>
 
         <section id="inicio_app" class="container">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Usuario Alfonso</li>
+                </ol>
+            </nav>
+
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-mapa-tab" data-toggle="tab" href="#nav-mapa" role="tab" aria-controls="nav-mapa" aria-selected="true">Mapa</a>
                     <a class="nav-item nav-link" id="nav-grafica-tab" data-toggle="tab" href="#nav-grafica" role="tab" aria-controls="nav-grafica" aria-selected="false">Gráfica</a>
+                    <a class="nav-item nav-link" id="nav-tecnico-tab" data-toggle="tab" href="#nav-tecnico" role="tab" aria-controls="nav-tecnico" aria-selected="false">Técnico</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -115,18 +121,71 @@
                     </div>
                 </div>
                 <!----------------------------- FIN Gráfica ----------------------------------------------------------->
-                <div class="tab-pane fade" id="nav-administrador" role="tabpanel" aria-labelledby="nav-administrador-tab">
-                    <h2 class="row mt-2 d-flex justify-content-center">Administrador de parcelas</h2>
-                    <hr>
-                    <div class="row px-md-5 d-flex justify-content-center">
-                        <div class="col-10 col-md mt-2 d-flex">
-                            <p class="pt-3 mr-2">Elige una parcela:</p>
-                            <select class="btn btn-success" id="select-parcelas-admin"></select>
-                        </div>
-                        <button type="button" class="btn btn-danger mt-3 mt-md-0">Eliminar Parcela</button>
+                <!------------------------------------ TECNICO ---------------------------------------------------------->
+                <div class="tab-pane fade" id="nav-tecnico" role="tabpanel" aria-labelledby="nav-tecnico-tab">
+
+                    <div class="row my-3 mx-auto d-flex flex-row justify-content-between border-bottom">
+                        <p class=" mr-3 mt-3 font-weight-bold">Sección administrar parcelas</p>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar Parcela" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
+                        </form>
+
+                        <a href="#" role="button"><img src="img/anyadir.png" alt="boton-anyadir-parcelas" onclick="anyadirParcela('adminstradorParcelas')"></a>
+
                     </div>
 
+
+                    <div class="mt-5 row d-flex justify-content-around mb-3" id="adminstradorParcelas">
+
+                        <!-- Estilo cuando iniciamos la app -
+                        <div class="card col-md-3 mt-3 mt-md-0">
+                            <div class="card-body">
+                                <div class="col-12 d-flex justify-content-between border-bottom mb-4">
+                                    <h4 class="card-title">Parcela 1</h4>
+                                    <div class="col-2 bg-danger colorParcelas"></div>
+                                </div>
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-outline-info mr-auto">Modificar</button>
+                                    <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estilo cuando editamos una parcela
+                        <div class="card col-md-3  mt-3 mt-md-0">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between border-bottom mb-4">
+                                    <input type="text" class="card-title col-9" id="tituloCampo" placeholder="Nombre parcela">
+                                    <input type="color" value="#1fe271">
+                                </div>
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-outline-success m-auto">Modificar</button>
+                                    <button type="button" class="btn btn-outline-danger">Descartar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estilo cuando creamos una parcela
+                        <div class="card col-md-3 mt-3 mt-md-0 border-success">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between border-bottom border-success mb-4">
+                                    <input type="text" class="card-title col-9" id="tituloCampo" placeholder="Nombre Parcela">
+                                    <input type="color" value="#1fe271">
+                                </div>
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-outline-success mr-auto">Crear</button>
+                                    <button type="button" class="btn btn-outline-danger">Descartar</button>
+                                </div>
+                            </div>
+                        </div>
+-->
+
+                    </div>
+
+
                 </div>
+
             </div>
         </section>
 
@@ -147,6 +206,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
     <!-- Pinta las gráficas -->
     <script src="js/mediciones.js"></script>
+    <!-- Pinta las gráficas -->
+    <script src="js/tecnicoUsuario.js"></script>
+    <!-- Elimina la parcela -->
+    <script src="js/seccionAdmistrarParcelas.js"></script>
+
+
 
     <script>
 
@@ -170,6 +235,10 @@
             // En la siguiente linea logramos que la gráfica se ponga en 0
             ControladorMedic.modelo.filtrar('idSonda', -1 + "");
         }
+
+        VistaSelectorTecnicoUsuario.preparar("adminstradorParcelas");
+        ControladorTecnicoUsuario.iniciar();
+
     </script>
 
     <!-- Carga la api de google maps -->

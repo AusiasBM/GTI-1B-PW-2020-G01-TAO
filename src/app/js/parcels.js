@@ -29,33 +29,36 @@ let VistaSelectorParcels = {
 
         let selector = this.selector;
 
-        let bounds = new google.maps.LatLngBounds();
-        let parcelas = [];
+        if (j[0] != null) {
 
-        await j.forEach(function (parcela) {
-            let polygon = new google.maps.Polygon({
-                paths: parcela.vertices,
-                strokeColor: parcela.color, // Color del borde
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: parcela.color, // Color de relleno
-                fillOpacity: 0.35,
-                map: map
+            let bounds = new google.maps.LatLngBounds();
+            let parcelas = [];
+
+            await j.forEach(function (parcela) {
+                let polygon = new google.maps.Polygon({
+                    paths: parcela.vertices,
+                    strokeColor: parcela.color, // Color del borde
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: parcela.color, // Color de relleno
+                    fillOpacity: 0.35,
+                    map: map
+                });
+
+                polygon.getPath().getArray().forEach(function (v) {
+                    bounds.extend(v);
+                });
+
+                parcelas[parcela.idParcela] = polygon;
+                let opcion = '<option value = "' + parcela.idParcela + '" >' + parcela.nombre + '</option>';
+                selector.innerHTML += opcion;
+
             });
 
-            polygon.getPath().getArray().forEach(function (v) {
-                bounds.extend(v);
-            });
+            map.fitBounds(bounds);
 
-            parcelas[parcela.idParcela] = polygon;
-            let opcion = '<option value = "'+ parcela.idParcela +'" >' + parcela.nombre + '</option>';
-            selector.innerHTML += opcion;
-
-        });
-
-        map.fitBounds(bounds);
-
-        this.parcelas = parcelas;
+            this.parcelas = parcelas;
+        }
     },
     visualizarParcela: function (indice){
 

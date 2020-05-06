@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="h-100" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI | Aplicación</title>
+    <script src="js/restringir-acceso.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="img/logoGTI.svg" sizes="64x64">
+</head>
+<body style="display: none">
+
+    <section class="container-fluid">
+
+        <header class="row">
+            <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
+                <a class="navbar-brand p-0" href="/index.html">
+                    <img src="img/logoGTI.svg" width="130" alt="logotipo GTI">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">INICIO<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="perfil.html">PERFIL</a>
+                        </li>
+                        <li class="nav-item linea">
+                            <a class="nav-link" href="javascript:fetch('../api/v1.0/sesion', {method: 'delete'}).then(function(respuesta) {
+                              if (respuesta.status == 200){
+                                location.href = '..';
+                              }
+                            })">CERRAR SESIÓN
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+
+        <section id="inicio_app" class="container">
+
+            <nav aria-label="recorrido">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Técnico</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Todos los usuarios</li>
+                </ol>
+            </nav>
+
+            <!------------------------------------ TECNICO ---------------------------------------------------------->
+            <div class="row my-3 mx-auto d-flex flex-row justify-content-between border-bottom">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar Usuario" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
+                </form>
+
+                <button class="col-7 col-md-2 btn btn-info mb-3 mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
+                    Filtros
+                </button>
+
+                <a href="#" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>
+            </div>
+
+            <div class="collapse" id="desplegableFiltros">
+                <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-around">
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                        <p class="pt-3 ml-1">Cooperativas</p>
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                        <p class="pt-3 ml-1">Usuarios</p>
+                    </div>
+
+                </div>
+            </div>
+<!--
+            <div class="alert alert-warning" role="alert">
+                Parcela creada correctamente
+            </div>
+
+            <div class="alert alert-warning" role="alert">
+                Modificación guardada correctamente
+            </div>
+
+            <div class="alert alert-warning" role="alert">
+                Parcela eliminada correctamente
+            </div>
+-->
+            <div class="mt-5 row d-flex justify-content-around mb-3">
+
+                <!-- Estilo cuando iniciamos la app -->
+                <div class="card col-md-3 mt-3 mt-md-0">
+                    <div class="card-body">
+                        <div class="col-12 d-flex justify-content-between border-bottom mb-4">
+                            <h4 class="card-title">Alfonso Perez</h4>
+                            <h4 class="card-title">DNI: 19293239X</h4>
+                        </div>
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-outline-info mr-auto">Modificar</button>
+                            <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estilo cuando creamos una parcela -->
+                <div class="card col-md-3 mt-3 mt-md-0 border-success">
+                    <div class="card-body">
+                        <div class="d-flex flex-column justify-content-center border-bottom border-success mb-4">
+
+                            <input type="text" class="card-title col-12" id="campoDni" placeholder="DNI o NIF usuario">
+
+                            <select class="my-2 disenyoSelector" id="select-parcelas">
+                                <option>Usuario</option>
+                                <option>Cooperativa</option>
+                                <option>Técnico</option>
+                            </select>
+                        </div>
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-outline-success mr-auto">Crear</button>
+                            <button type="button" class="btn btn-outline-danger">Descartar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!----------------------------------- JAVASCRIPT ------------------------------------------------------------>
+    <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!----------------------------------------------------------------------------------------------->
+
+
+</body>
+</html>
