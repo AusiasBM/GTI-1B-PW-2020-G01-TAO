@@ -6,7 +6,7 @@ if (isset($_POST['nombre_de_usuario']) && isset($_POST['contraseña'])){
     $nombre_de_usuario = $_POST['nombre_de_usuario'];
     $contraseña = $_POST['contraseña'];
 
-    $sql = "SELECT `idUsuario`, usuarios.nombre as 'nombre', contraseña, rol.nombre as 'rol' FROM usuarios, rol where usuarios.nombre = \"$nombre_de_usuario\" and contraseña = \"$contraseña\" and usuarios.rol = rol.idRol";
+    $sql = "SELECT `idUsuario`, usuarios.nombre as 'nombre', contraseña, rol.nombre as 'rol', usuarios.rol as 'numRol' FROM usuarios, rol where usuarios.nombre = \"$nombre_de_usuario\" and contraseña = \"$contraseña\" and usuarios.rol = rol.idRol";
 
     $res = mysqli_query($conexion, $sql);
 
@@ -19,7 +19,10 @@ if (isset($_POST['nombre_de_usuario']) && isset($_POST['contraseña'])){
         $_SESSION['idUsuario'] = $row['idUsuario'];
         $_SESSION['nombre_usuario'] = $row['nombre'];
         $_SESSION['rol_usuario'] = $row['rol'];
+        $_SESSION['numRol_usuario'] = $row['numRol'];
         $_SESSION['registrado'] = 'ok';
+
+        array_push($salida, $_SESSION['numRol_usuario']);
 
         $http_code = 200;
     }else{
