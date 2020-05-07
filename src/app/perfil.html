@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">INICIO<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" onclick="inicio()">INICIO<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">PERFIL</a>
@@ -43,7 +43,6 @@
                 </ul>
             </div>
         </nav>
-
     </header>
 
     <section id="perfil" class="container">
@@ -76,6 +75,15 @@
 <script src="js/sesion.js"></script>
 
 <script>
+
+    function inicio(){
+        if (VistaSelectorSesion.rol != 3){
+            location.href = 'vistaTecnicoCooperativa.html';
+        }else{
+            location.href = 'index.html';
+        }
+    }
+
 
     VistaSelectorSesion.preparar();
     ControladorSesion.iniciar();

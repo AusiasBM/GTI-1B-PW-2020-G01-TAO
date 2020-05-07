@@ -7,8 +7,10 @@ function pasarAlUsuario(nombreUsuario, idUsuario, tipoRol) {
         method: 'post',
         body: JSON.stringify(usuario)
     }).then(function(res){
+        res.json().then((res) => console.log(res))
         if (res.status == 200){
-            location.href = 'index.html';
+            if (tipoRol == 3) location.href = 'index.html';
+            if (tipoRol != 3) location.href = 'vistaTecnicoCooperativa.html';
         }
     });
 }

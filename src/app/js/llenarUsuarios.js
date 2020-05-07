@@ -33,7 +33,7 @@ let VistaSelectorTecnicoLlenarUsuario = {
             await j.forEach(usuario => this.creadorUsuario(usuario.nombre, usuario.nombreRol, usuario.id, usuario.numRol));
             await j.forEach(usuario => this.usuarios[usuario.id] = usuario);
         }else{
-            this.seccionParcelas.innerHTML = '<h3>NO TIENES PARCELAS</h3>';
+            this.seccionParcelas.innerHTML = '<h3>NO TIENES CLIENTES</h3>';
         }
     },
     creadorUsuario : function (nombreUsuario, nombreRol, id, numRol) {

@@ -4,7 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GTI | Aplicación</title>
-    <script src="js/restringir-acceso.js"></script>
+    <script src="js/llenarUsuarios.js"></script>
+    <script src="js/pasarUser.js"></script>
+    <script>
+        fetch('../api/v1.0/sesion').then(function (respuesta) {
+
+            if (respuesta.status != 200){
+                alert("No tienes acceso");
+                location.href = '..';
+            }else{
+
+                respuesta.json().then((res) => {
+                    console.log(res)
+                    if (res[0][3] != 3){
+
+                        VistaSelectorTecnicoLlenarUsuario.preparar('seccionUsuarios');
+                        ControladorTecnicoLlenarUsuario.iniciar();
+
+                        document.body.style.display = 'block';
+                        quitarUsuario(3);
+                        if (res[0][0] == 0 && res[0][3] != 0){
+                            document.getElementById('mijas').innerHTML = `
+                                                                        <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
+                                                                        <li class="breadcrumb-item active" aria-current="page"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
+                                                                   `;
+
+                        }
+                        if (res[0][0] != 0 && res[0][3] != 0){
+                            document.getElementById('mijas').innerHTML = `
+                                                                        <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Técnico</a></li>
+                                                                        <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
+                                                                        <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
+                                                                        <li class="breadcrumb-item active" aria-current="page"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
+                                                                   `;
+                            document.getElementById('opcionesTecnico').innerHTML += `
+                                                                            <button class="col-7 col-md-2 btn btn-info mb-3 mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
+                                                                                Filtros
+                                                                            </button>
+
+                                                                            <a href="#" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>`
+                        }
+                        if (res[0][0] != 0 && res[0][3] == 0){
+                            document.getElementById('mijas').innerHTML = `
+                                                                        <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Técnico</a></li>
+                                                                        <li class="breadcrumb-item active" aria-current="page"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
+
+                                                                   `;
+
+                            document.getElementById('opcionesTecnico').innerHTML += `
+                                                                            <button class="col-7 col-md-2 btn btn-info mb-3 mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
+                                                                                Filtros
+                                                                            </button>
+
+                                                                            <a href="#" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>`
+                        }
+                    }else{
+                        alert("No tienes acceso");
+                        location.href = 'index.html';
+                    }
+                });
+            }
+        });
+    </script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/png" href="img/logoGTI.svg" sizes="64x64">
@@ -48,24 +109,18 @@
         <section id="inicio_app" class="container">
 
             <nav aria-label="recorrido">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb" id="mijas">
                     <li class="breadcrumb-item"><a href="#">Técnico</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Todos los usuarios</li>
                 </ol>
             </nav>
 
             <!------------------------------------ TECNICO ---------------------------------------------------------->
-            <div class="row my-3 mx-auto d-flex flex-row justify-content-between border-bottom">
+            <div class="row my-3 mx-auto d-flex flex-row justify-content-between border-bottom pb-2" id="opcionesTecnico">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar Usuario" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
                 </form>
-
-                <button class="col-7 col-md-2 btn btn-info mb-3 mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
-                    Filtros
-                </button>
-
-                <a href="#" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>
             </div>
 
             <div class="collapse" id="desplegableFiltros">
@@ -85,20 +140,6 @@
             </div>
 
             <div class="mt-5 row d-flex justify-content-around mb-3" id="seccionUsuarios">
-
-                <!-- Estilo cuando iniciamos la app -->
-                <div class="card col-md-3 mt-3 mt-md-0">
-                    <div class="card-body">
-                        <div class="col-12 d-flex justify-content-between border-bottom mb-4">
-                            <h4 class="card-title">Alfonso Perez</h4>
-                            <h4 class="card-title">DNI: 19293239X</h4>
-                        </div>
-                        <div class="d-flex">
-                            <button type="button" class="btn btn-outline-info mr-auto" onclick="pasarAlUsuario(1, 3)">Acceder</button>
-                            <button type="button" class="btn btn-outline-danger" onclick="quitarUsuario(3)">Eliminar</button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Estilo cuando creamos una parcela -->
                 <div class="card col-md-3 mt-3 mt-md-0 border-success">
@@ -126,17 +167,7 @@
 
     </section>
 
-    <script src="js/pasarUser.js"></script>
 
-    <script src="js/llenarUsuarios.js"></script>
-
-    <script>
-        quitarUsuario(3);
-        quitarUsuario(2);
-
-        VistaSelectorTecnicoLlenarUsuario.preparar('seccionUsuarios');
-        ControladorTecnicoLlenarUsuario.iniciar();
-    </script>
 
     <!----------------------------------- JAVASCRIPT ------------------------------------------------------------>
     <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
