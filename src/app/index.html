@@ -47,7 +47,7 @@
 
         <section id="inicio_app" class="container">
 
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" id="mijas">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">Usuario Alfonso</li>
                 </ol>
@@ -57,7 +57,6 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-mapa-tab" data-toggle="tab" href="#nav-mapa" role="tab" aria-controls="nav-mapa" aria-selected="true">Mapa</a>
                     <a class="nav-item nav-link" id="nav-grafica-tab" data-toggle="tab" href="#nav-grafica" role="tab" aria-controls="nav-grafica" aria-selected="false">Gráfica</a>
-                    <a class="nav-item nav-link" id="nav-tecnico-tab" data-toggle="tab" href="#nav-tecnico" role="tab" aria-controls="nav-tecnico" aria-selected="false">Técnico</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -150,6 +149,8 @@
     <!----------------------------------- JAVASCRIPT ------------------------------------------------------------>
 
     <!-- Administrador -->
+    <script src="js/roles.js"></script>
+    <!-- Administrador -->
     <script src="js/administrador.js"></script>
     <!-- Crea el mapa -->
     <script src="js/mapa.js"></script>
@@ -165,8 +166,6 @@
     <script src="js/tecnicoUsuario.js"></script>
     <!-- Elimina la parcela -->
     <script src="js/funcionesSeccionTecnico.js"></script>
-
-
 
     <script>
 
@@ -194,6 +193,7 @@
         VistaSelectorTecnicoUsuario.preparar("adminstradorParcelas");
         ControladorTecnicoUsuario.iniciar();
 
+        roles();
     </script>
 
     <!-- Carga la api de google maps -->

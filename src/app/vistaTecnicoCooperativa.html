@@ -83,20 +83,8 @@
 
                 </div>
             </div>
-<!--
-            <div class="alert alert-warning" role="alert">
-                Parcela creada correctamente
-            </div>
 
-            <div class="alert alert-warning" role="alert">
-                Modificación guardada correctamente
-            </div>
-
-            <div class="alert alert-warning" role="alert">
-                Parcela eliminada correctamente
-            </div>
--->
-            <div class="mt-5 row d-flex justify-content-around mb-3">
+            <div class="mt-5 row d-flex justify-content-around mb-3" id="seccionUsuarios">
 
                 <!-- Estilo cuando iniciamos la app -->
                 <div class="card col-md-3 mt-3 mt-md-0">
@@ -106,8 +94,8 @@
                             <h4 class="card-title">DNI: 19293239X</h4>
                         </div>
                         <div class="d-flex">
-                            <button type="button" class="btn btn-outline-info mr-auto">Modificar</button>
-                            <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                            <button type="button" class="btn btn-outline-info mr-auto" onclick="pasarAlUsuario(1, 3)">Acceder</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="quitarUsuario(3)">Eliminar</button>
                         </div>
                     </div>
                 </div>
@@ -138,6 +126,17 @@
 
     </section>
 
+    <script src="js/pasarUser.js"></script>
+
+    <script src="js/llenarUsuarios.js"></script>
+
+    <script>
+        quitarUsuario(3);
+        quitarUsuario(2);
+
+        VistaSelectorTecnicoLlenarUsuario.preparar('seccionUsuarios');
+        ControladorTecnicoLlenarUsuario.iniciar();
+    </script>
 
     <!----------------------------------- JAVASCRIPT ------------------------------------------------------------>
     <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
