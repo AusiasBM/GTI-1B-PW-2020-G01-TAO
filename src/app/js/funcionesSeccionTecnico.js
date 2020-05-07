@@ -10,11 +10,17 @@ function funcionesSeccionTecnico(idParcela){
             fetch('../api/v1.0/parcela', {
                 method: 'DELETE',
                 body: JSON.stringify(jsonObject)
-            }).then(res => res.json())
-                .catch(error => console.error('Error:', error))
-                .then(response => alert("Parcela eliminada"));
-            location.href = 'index.html';
-        } else {
+            }).then(function(res){
+                if (res.status == 200){
+                    alert("Parcela eliminada")
+                    //console.log(res.status)
+                    location.href = 'index.html';
+                }else{
+                    alert("Error Eliminando")
+                }
+            });
+
+        }else {
             alert("No se a eliminado la parcela");
         }
     }else{
@@ -84,40 +90,40 @@ function anyadirParcela(seccion) {
         parcela.id = seccion;
         parcela.parcela = document.getElementById(seccion).innerHTML.toString();
         document.getElementById(parcela.id).innerHTML = `<div class="card col-md-3 mt-3 border-success" id="anyadir">
-                                                        <div class="card-body">
-                                                            <div class="d-flex flex-column justify-content-between border-bottom border-success pb-2">
-                                                                <div class="d-flex justify-content-between mb-1">
-                                                                    <input type="text" class="card-title col-9" id="tituloCampoCreandose" placeholder="Nombre Parcela">
-                                                                    <input type="color" id="colorParcelaCreandose" value="#1fe271">
-                                                                </div>
-                                                                
-                                                                <div class="border">
-                                                                    <select class="col-12 disenyoSelector" id="selectorVertices">
-                                                                        <option selected="true" disabled="disabled" value="titulo">Vertices</option>
-                                                                    </select>
+                                                            <div class="card-body">
+                                                                <div class="d-flex flex-column justify-content-between border-bottom border-success pb-2">
+                                                                    <div class="d-flex justify-content-between mb-1">
+                                                                        <input type="text" class="card-title col-9" id="tituloCampoCreandose" placeholder="Nombre Parcela">
+                                                                        <input type="color" id="colorParcelaCreandose" value="#1fe271">
+                                                                    </div>
                                                                     
-                                                                    <div class="collapse" id="collapseVertices">
-                                                                        <div class="card card-body border-0 d-flex flex-column justify-content-center">
-                                                                            <input type="text" class="card-title" id="latitud" placeholder="Latitud">
-                                                                            <input type="text" class="card-title" id="longitud" placeholder="Longitud">
-                                                                            <button type="button" class="btn btn-success" onclick="anyadirVertice()" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Añadir vertice</button>
+                                                                    <div class="border">
+                                                                        <select class="col-12 disenyoSelector" id="selectorVertices">
+                                                                            <option selected="true" disabled="disabled" value="titulo">Vertices</option>
+                                                                        </select>
+                                                                        
+                                                                        <div class="collapse" id="collapseVertices">
+                                                                            <div class="card card-body border-0 d-flex flex-column justify-content-center">
+                                                                                <input type="text" class="card-title" id="latitud" placeholder="Latitud">
+                                                                                <input type="text" class="card-title" id="longitud" placeholder="Longitud">
+                                                                                <button type="button" class="btn btn-success" onclick="anyadirVertice()" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Añadir vertice</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="d-flex pt-2">
+                                                                            <button type="button" class="btn btn-success mr-auto" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Crear vertice</button>
+                                                                            <button type="button" class="btn btn-danger" onclick="eliminarVertice()">Eliminar vertice</button>
                                                                         </div>
                                                                     </div>
                                                                     
-                                                                    <div class="d-flex pt-2">
-                                                                        <button type="button" class="btn btn-success mr-auto" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Crear vertice</button>
-                                                                        <button type="button" class="btn btn-danger" onclick="eliminarVertice()">Eliminar vertice</button>
-                                                                    </div>
+                                                                    
                                                                 </div>
-                                                                
-                                                                
+                                                                <div class="d-flex pt-2">
+                                                                    <button type="button" class="btn btn-outline-success mr-auto" onclick="generarCreacion()">Crear</button>
+                                                                    <button type="button" class="btn btn-outline-danger" onclick="descartar()">Descartar</button>
+                                                                </div>
                                                             </div>
-                                                            <div class="d-flex pt-2">
-                                                                <button type="button" class="btn btn-outline-success mr-auto" onclick="generarCreacion()">Crear</button>
-                                                                <button type="button" class="btn btn-outline-danger" onclick="descartar()">Descartar</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>` + document.getElementById(parcela.id).innerHTML;
+                                                        </div>` + document.getElementById(parcela.id).innerHTML;
 
     }else{
         alert("Estas modificando o creando una parcela")
@@ -161,12 +167,15 @@ function generarCreacion() {
         fetch('../api/v1.0/crearParcela', {
             method: 'post',
             body: JSON.stringify(parcela)
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log(response));
+        }).then(function (res) {
+            if (res.status == 200){
+                location.href = 'index.html';
+                parcela.parcela = null;
+            }else{
+                alert("No se ha añadido correctamente")
+            }
+        });
 
-        location.href = 'index.html';
-        parcela.parcela = null;
     }else{
         alert("Falta el nombre o tienes menos de 3 vertices");
     }
@@ -193,12 +202,15 @@ function generarModificacion() {
         fetch('../api/v1.0/editarParcela', {
             method: 'post',
             body: JSON.stringify(parcela)
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log(response));
+        }).then(function (res) {
+            if (res.status == 200){
+                location.href = 'index.html';
+                parcela.parcela = null;
+            }else{
+                alert("No se ha modificado correctamente")
+            }
+        });
 
-        location.href = 'index.html';
-        parcela.parcela = null;
     }else{
         alert("Falta el nombre o tienes menos de 3 vertices");
     }

@@ -42,7 +42,7 @@ INSERT INTO clientes(idCooperativa, idUsuario) VALUES
 
 CREATE TABLE parcelas(
     idParcela   INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
-    nombre      varchar(11) NOT NULL,
+    nombre      varchar(20) NOT NULL,
     color       varchar(30) NOT NULL,
     tipoCultivo varchar(30) DEFAULT NULL
 );
