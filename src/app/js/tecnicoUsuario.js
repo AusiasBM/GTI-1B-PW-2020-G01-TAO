@@ -30,7 +30,8 @@ let VistaSelectorTecnicoUsuario = {
         this.seccionParcelas.innerHTML = '';
 
         if (j[0] != null) {
-            await j.forEach(parcela => this.creadorParcela(parcela.nombre, parcela.color, parcela.idParcela));
+            await j.forEach(parcela => this.creadorParcela(parcela.nombre, parcela.color, parcela.idParcela, parcela.vertices));
+            await j.forEach(parcela => this.parcelas[parcela.idParcela] = parcela);
         }else{
             this.seccionParcelas.innerHTML = '<h3>NO TIENES PARCELAS</h3>';
         }
