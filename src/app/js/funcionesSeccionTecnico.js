@@ -1,5 +1,5 @@
 
-function seccionAdmistrarParcelas(idParcela){
+function funcionesSeccionTecnico(idParcela){
     if (parcela.parcela == null) {
 
         var mensaje = confirm("Está seguro de que desea eliminar la parcela?");
@@ -57,18 +57,18 @@ function modificarParcela(idParcela) {
                                                                     <div class="card card-body d-flex flex-column justify-content-center">
                                                                         <input type="text" class="card-title" id="latitud" placeholder="Latitud">
                                                                         <input type="text" class="card-title" id="longitud" placeholder="Longitud">
-                                                                        <button type="button" class="btn btn-success" onclick="anyadirVertice()" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Añadir</button>
+                                                                        <button type="button" class="btn btn-success" onclick="anyadirVertice()" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Añadir vertice</button>
                                                                     </div>
                                                                 </div>
                                                                 
                                                                 <div class="d-flex pt-2">
-                                                                    <button type="button" class="btn btn-success mr-auto" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Crear</button>
-                                                                    <button type="button" class="btn btn-danger" onclick="eliminarVertice()">Eliminar</button>
+                                                                    <button type="button" class="btn btn-success mr-auto" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Crear vertice</button>
+                                                                    <button type="button" class="btn btn-danger" onclick="eliminarVertice()">Eliminar vertice</button>
                                                                 </div>
                                                             </div>
                                                             
                                                             <div class="d-flex pt-2">
-                                                                <button type="button" class="btn btn-outline-success mr-auto" onclick="generarModificacion()">Modificar</button>
+                                                                <button type="button" class="btn btn-outline-success mr-auto" onclick="generarModificacion()">Guardar</button>
                                                                 <button type="button" class="btn btn-outline-danger" onclick="descartar()">Descartar</button>
                                                             </div>
                                                         </div>`
@@ -100,13 +100,13 @@ function anyadirParcela(seccion) {
                                                                         <div class="card card-body border-0 d-flex flex-column justify-content-center">
                                                                             <input type="text" class="card-title" id="latitud" placeholder="Latitud">
                                                                             <input type="text" class="card-title" id="longitud" placeholder="Longitud">
-                                                                            <button type="button" class="btn btn-success" onclick="anyadirVertice()" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Añadir</button>
+                                                                            <button type="button" class="btn btn-success" onclick="anyadirVertice()" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Añadir vertice</button>
                                                                         </div>
                                                                     </div>
                                                                     
                                                                     <div class="d-flex pt-2">
-                                                                        <button type="button" class="btn btn-success mr-auto" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Crear</button>
-                                                                        <button type="button" class="btn btn-danger" onclick="eliminarVertice()">Eliminar</button>
+                                                                        <button type="button" class="btn btn-success mr-auto" data-toggle="collapse" data-target="#collapseVertices" aria-expanded="false" aria-controls="collapseVertices">Crear vertice</button>
+                                                                        <button type="button" class="btn btn-danger" onclick="eliminarVertice()">Eliminar vertice</button>
                                                                     </div>
                                                                 </div>
                                                                 
@@ -136,9 +136,18 @@ function anyadirVertice() {
 
 // Botón que elimina vertices en el select de la vista, pero no en la base de datos
 function eliminarVertice() {
-    document.getElementById("selectorVertices").remove(document.getElementById("selectorVertices").selectedIndex)
-    alert("Vertice eliminado correctamente")
+    console.log(document.getElementById("selectorVertices").selectedIndex)
+    if(document.getElementById("selectorVertices").selectedIndex != 0){
+        var mensajeVertice = confirm("Está seguro de que desea eliminar el vertice?");
 
+        if (mensajeVertice){
+            document.getElementById("selectorVertices").remove(document.getElementById("selectorVertices").selectedIndex)
+            alert("Vertice eliminado correctamente")
+        }else{
+            alert("No se ha eliminado el vertice")
+        }
+
+    }
 }
 
 // Botón que genera la nueva parcela
@@ -157,6 +166,7 @@ function generarCreacion() {
             .then(response => console.log(response));
 
         location.href = 'index.html';
+        parcela.parcela = null;
     }else{
         alert("Falta el nombre o tienes menos de 3 vertices");
     }
@@ -188,6 +198,7 @@ function generarModificacion() {
             .then(response => console.log(response));
 
         location.href = 'index.html';
+        parcela.parcela = null;
     }else{
         alert("Falta el nombre o tienes menos de 3 vertices");
     }
