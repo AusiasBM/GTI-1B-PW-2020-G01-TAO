@@ -37,7 +37,7 @@ let VistaSelectorTecnicoUsuario = {
         }
     },
     creadorParcela : function (nombreParcela, color, idParcela) {
-        this.seccionParcelas.innerHTML += `<div class="card col-md-3 mt-3" id="${idParcela}">
+        this.seccionParcelas.innerHTML += `<div class="card col-md-3 m-3" id="${idParcela}">
                                                 <div class="card-body">
                                                     <div class="col-12 d-flex justify-content-between border-bottom mb-4">
                                                         <h4 class="card-title">${nombreParcela}</h4>

@@ -89,7 +89,7 @@ function anyadirParcela(seccion) {
     if (parcela.parcela == null){
         parcela.id = seccion;
         parcela.parcela = document.getElementById(seccion).innerHTML.toString();
-        document.getElementById(parcela.id).innerHTML = `<div class="card col-md-3 mt-3 border-success" id="anyadir">
+        document.getElementById(parcela.id).innerHTML = `<div class="card col-md-3 m-3 border-success" id="anyadir">
                                                             <div class="card-body">
                                                                 <div class="d-flex flex-column justify-content-between border-bottom border-success pb-2">
                                                                     <div class="d-flex justify-content-between mb-1">

@@ -30,7 +30,7 @@ CREATE TABLE clientes(
     idCooperativa       int(11) DEFAULT NULL,
     idUsuario           int(11) DEFAULT NULL,
     FOREIGN KEY (idCooperativa) references usuarios(idUsuario),
-    FOREIGN KEY (idUsuario) references usuarios(idUsuario)
+    FOREIGN KEY (idUsuario) references usuarios(idUsuario) ON DELETE CASCADE
 );
 
 INSERT INTO clientes(idCooperativa, idUsuario) VALUES
@@ -59,7 +59,7 @@ INSERT INTO parcelas (nombre, color) VALUES
 CREATE TABLE usuarios_parcelas(
     idUsuario       int(11) DEFAULT NULL,
     idParcela       int(11) DEFAULT NULL,
-    FOREIGN KEY (idUsuario) references usuarios(idUsuario),
+    FOREIGN KEY (idUsuario) references usuarios(idUsuario) ON DELETE CASCADE,
     FOREIGN KEY (idParcela) references parcelas(idParcela) ON DELETE CASCADE
 );
 
