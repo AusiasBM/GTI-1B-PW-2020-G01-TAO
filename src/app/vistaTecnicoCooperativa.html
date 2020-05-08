@@ -33,29 +33,23 @@
                         if (res[0][0] != 0 && res[0][3] != 0){
                             document.getElementById('mijas').innerHTML = `
                                                                         <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Técnico</a></li>
-                                                                        <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
+                                                                        <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Todos los usuarios</a></li>
                                                                         <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
-                                                                        <li class="breadcrumb-item active" aria-current="page"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
+                                                                        <li class="breadcrumb-item active" aria-current="page">Todos los clientes</li>
                                                                    `;
                             document.getElementById('opcionesTecnico').innerHTML += `
-                                                                            <button class="col-7 col-md-2 btn btn-info mb-3 mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
-                                                                                Filtros
-                                                                            </button>
-
                                                                             <a href="#" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>`
                         }
                         if (res[0][0] != 0 && res[0][3] == 0){
                             document.getElementById('mijas').innerHTML = `
                                                                         <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Técnico</a></li>
-                                                                        <li class="breadcrumb-item active" aria-current="page"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
-
+                                                                        <li class="breadcrumb-item active" aria-current="page">Todos los usuarios</li>
                                                                    `;
 
                             document.getElementById('opcionesTecnico').innerHTML += `
-                                                                            <button class="col-7 col-md-2 btn btn-info mb-3 mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
+                                                                            <button class="col-7 col-md-2 btn btn-info mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
                                                                                 Filtros
                                                                             </button>
-
                                                                             <a href="#" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>`
                         }
                     }else{

@@ -15,7 +15,7 @@ function roles() {
             document.getElementById('mijas').innerHTML = `<ol class="breadcrumb">
                                                                         <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
                                                                         <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
-                                                                        <li class="breadcrumb-item active" aria-current="page">Usuario ${datosJson[0]['nombre-usuario']}</li>
+                                                                        <li class="breadcrumb-item active" aria-current="page">Cliente ${datosJson[0]['nombre-usuario']}</li>
                                                                    </ol>`;
         }
 
@@ -27,5 +27,18 @@ function roles() {
                                                                         <li class="breadcrumb-item active" aria-current="page">Usuario ${datosJson[0]['nombre-usuario']}</li>
                                                                    </ol>`;
         }
+
+        if (datosJson[0]['numRol-tecnico'] != 0 && datosJson[0]['numRol-cooperativa'] != 0){
+            document.getElementById('mijas').innerHTML = `<ol class="breadcrumb">
+                                                                        <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Técnico</a></li>
+                                                                        <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Todos los usuarios</a></li>
+                                                                        <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
+                                                                        <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
+                                                                        <li class="breadcrumb-item active" aria-current="page">Cliente ${datosJson[0]['nombre-usuario']}</li>
+                                                                   </ol>`;
+
+        }
+
+
     });
 }
