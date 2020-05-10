@@ -38,23 +38,31 @@ let VistaSelectorTecnicoLlenarUsuario = {
                 if(usuario['numRol'] == 2){
                     this.cooperativas.push(usuario)
                 }
+                if ($esCooperativa){
+                    document.getElementById('btnEliminar'+ usuario.id).style.display = 'none';
+                    document.getElementById('btnDesvincular' + usuario.id).style.display = 'block';
+                }
             }
+
+
 
         }else{
             this.seccionParcelas.innerHTML = '<h3>NO TIENES CLIENTES</h3>';
         }
+
     },
     creadorUsuario : function (nombreUsuario, nombreRol, id, numRol) {
         this.seccionParcelas.innerHTML += `<!-- Estilo cuando iniciamos la app -->
-                                            <div class="card col-md-3 m-3">
+                                            <div class="card col-md-3 m-3" id="${id}">
                                                 <div class="card-body">
                                                     <div class="col-12 d-flex flex-column justify-content-between border-bottom mb-4">
                                                         <h4 class="card-title">${nombreUsuario}</h4>
                                                         <h4 class="card-title">Rol: ${nombreRol}</h4>
                                                     </div>
-                                                    <div class="d-flex">
+                                                    <div class="d-flex" id="botones-usuarios">
                                                         <button type="button" class="btn btn-outline-info mr-auto" onclick="pasarAlUsuario('${nombreUsuario}', ${id}, ${numRol})">Acceder</button>
-                                                        <button type="button" class="btn btn-outline-danger" id="btnEliminar" onclick="funcionesSeccionTecnico(${id})">Eliminar</button>
+                                                        <button type="button" class="btn btn-outline-danger" id="btnEliminar${id}" onclick="funcionesSeccionTecnico(${id})">Eliminar</button>
+                                                        <button type="button" class="btn btn-outline-danger ml-2" style="display: none" id="btnDesvincular${id}" onclick="desvincularUsuarioCooperativa(${id})">Desvincular</button>
                                                     </div>
                                                 </div>
                                             </div>`;

@@ -22,7 +22,6 @@ if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
         );
 
         array_push($salida, $sonda);
-
     }
 
     $http_code = 200;

@@ -19,17 +19,17 @@ CREATE TABLE usuarios(
 );
 
 INSERT INTO usuarios(nombre, contraseña, rol) VALUES 
-                                                ("Alfonso", "elche", 3), 
-                                                ("Antonio", "alzira", 3),
-                                                ("Mario", "villalonga", 1), 
-                                                ("Pedro", "gandia", 2);
+                                                ("Alfonso", "1234", 3),
+                                                ("Antonio", "1234", 3),
+                                                ("Tecnico", "1234", 1),
+                                                ("Cooperativa", "1234", 2);
 
 /*---------- TABLA CLIENTES ----------*/
 
 CREATE TABLE clientes(
     idCooperativa       int(11) DEFAULT NULL,
     idUsuario           int(11) DEFAULT NULL,
-    FOREIGN KEY (idCooperativa) references usuarios(idUsuario),
+    FOREIGN KEY (idCooperativa) references usuarios(idUsuario) ON DELETE CASCADE,
     FOREIGN KEY (idUsuario) references usuarios(idUsuario) ON DELETE CASCADE
 );
 

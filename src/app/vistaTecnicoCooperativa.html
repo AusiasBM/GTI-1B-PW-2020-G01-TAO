@@ -8,14 +8,14 @@
     <script src="js/pasarUser.js"></script>
     <script>
         fetch('../api/v1.0/sesion').then(function (respuesta) {
-
+            $esCooperativa = false;
             if (respuesta.status != 200){
                 alert("No tienes acceso");
                 location.href = '..';
             }else{
 
                 respuesta.json().then((res) => {
-                    console.log(res)
+                    //console.log(res)
                     if (res[0][3] != 3){
 
                         VistaSelectorTecnicoLlenarUsuario.preparar('seccionUsuarios');
@@ -39,7 +39,8 @@
                             document.getElementById('opcionesTecnico').innerHTML += `
                                                                                 <button class="btn btn-info mr-0 mr-md-2 disenyoSelector" type="button" data-toggle="collapse" data-target="#desplegableVincular" aria-expanded="false" aria-controls="desplegableVincular">
                                                                                     Vincular usuario
-                                                                                </button>`
+                                                                                </button>`;
+                            $esCooperativa = true;
                         }
                         if (res[0][0] != 0 && res[0][3] == 0){
                             document.getElementById('mijas').innerHTML = `
@@ -146,7 +147,7 @@
                         <select class="my-2 disenyoSelector" id="select-usuariosParaVincular"></select>
                     </div>
 
-                    <button type="button" class="btn btn-outline-success">Añadir a la cooperativa</button>
+                    <button type="button" class="btn btn-outline-success" onclick="vincularUsuarioCooperativa()">Añadir a la cooperativa</button>
                 </div>
             </div>
 
