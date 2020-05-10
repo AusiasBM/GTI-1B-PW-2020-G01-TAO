@@ -33,12 +33,13 @@
                         if (res[0][0] != 0 && res[0][3] != 0){
                             document.getElementById('mijas').innerHTML = `
                                                                         <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Técnico</a></li>
-                                                                        <li class="breadcrumb-item"><a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Todos los usuarios</a></li>
                                                                         <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
                                                                         <li class="breadcrumb-item active" aria-current="page">Todos los clientes</li>
                                                                    `;
                             document.getElementById('opcionesTecnico').innerHTML += `
-                                                                            <a href="#" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>`
+                                                                                <button class="btn btn-info mr-0 mr-md-2 disenyoSelector" type="button" data-toggle="collapse" data-target="#desplegableVincular" aria-expanded="false" aria-controls="desplegableVincular">
+                                                                                    Vincular usuario
+                                                                                </button>`
                         }
                         if (res[0][0] != 0 && res[0][3] == 0){
                             document.getElementById('mijas').innerHTML = `
@@ -47,11 +48,15 @@
                                                                    `;
 
                             document.getElementById('opcionesTecnico').innerHTML += `
-                                                                            <button class="col-7 col-md-2 btn btn-info mr-0 mr-md-2" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
-                                                                                Filtros
-                                                                            </button>
-                                                                            <a onclick="anyadirUsuario('seccionUsuarios')" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>`
+                                                                            <div class="d-flex">
+                                                                                <button class="btn btn-info mr-0 mr-md-2 disenyoSelector" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
+                                                                                    Filtros
+                                                                                </button>
+                                                                                <a onclick="anyadirUsuario('seccionUsuarios')" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>
+                                                                            </div>`
                         }
+
+
                     }else{
                         alert("No tienes acceso");
                         location.href = 'index.html';
@@ -133,6 +138,18 @@
                 </div>
             </div>
 
+            <div class="collapse" id="desplegableVincular">
+                <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-around">
+
+                    <div class="d-flex">
+                        <p class="pt-3 mx-3">Elige un usuario para vincularlo a esta cooperativa:</p>
+                        <select class="my-2 disenyoSelector" id="select-usuariosParaVincular"></select>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-success">Añadir a la cooperativa</button>
+                </div>
+            </div>
+
             <div class="mt-5 row d-flex justify-content-around mb-3" id="seccionUsuarios"></div>
 
         </section>
@@ -141,7 +158,9 @@
 
 
     <script src="js/funcionesSeccionTecnico.js"></script>
-
+    <script>
+        anyadirUsuariosDesplegableCooperativa()
+    </script>
 
 
     <!----------------------------------- JAVASCRIPT ------------------------------------------------------------>

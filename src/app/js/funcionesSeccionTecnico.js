@@ -91,3 +91,21 @@ function descartar() {
     usuario.usuario = null;
 
 }
+
+// Añadir desplegable de usuarios
+function anyadirUsuariosDesplegableCooperativa() {
+
+    fetch('../api/v1.0/usuariosRolUsuario').then(function (respuesta) {
+        return respuesta.json();
+    }).then((datosJson) => {
+        console.log(datosJson);
+
+        if (datosJson[0] != null) {
+            for(let usuario of datosJson){
+                document.getElementById('select-usuariosParaVincular').innerHTML += `<option value="${usuario.id}">${usuario.nombre}</option>`
+            }
+        }else{
+            document.getElementById('select-usuariosParaVincular').innerHTML += `<option>No hay usuarios</option>`
+        }
+    });
+}

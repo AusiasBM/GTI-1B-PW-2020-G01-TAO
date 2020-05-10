@@ -54,7 +54,7 @@ let VistaSelectorTecnicoLlenarUsuario = {
                                                     </div>
                                                     <div class="d-flex">
                                                         <button type="button" class="btn btn-outline-info mr-auto" onclick="pasarAlUsuario('${nombreUsuario}', ${id}, ${numRol})">Acceder</button>
-                                                        <button type="button" class="btn btn-outline-danger" onclick="funcionesSeccionTecnico(${id})">Eliminar</button>
+                                                        <button type="button" class="btn btn-outline-danger" id="btnEliminar" onclick="funcionesSeccionTecnico(${id})">Eliminar</button>
                                                     </div>
                                                 </div>
                                             </div>`;

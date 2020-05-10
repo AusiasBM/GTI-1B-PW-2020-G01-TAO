@@ -4,7 +4,7 @@ session_start();
 
 if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 'ok'){
 
-    $sql = "select `usuarios`.*, `rol`.`nombre` as nombreRol from `usuarios`, `rol` WHERE usuarios.rol = rol.idRol";
+    $sql = "select `usuarios`.*, `rol`.`nombre` as nombreRol from `usuarios`, `rol` WHERE usuarios.rol = rol.idRol and usuarios.rol != 1";
 
     if ($_SESSION['numRol_cooperativa'] != 0){
         $cooperativa = $_SESSION['idCooperativa'];
