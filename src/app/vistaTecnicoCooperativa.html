@@ -8,6 +8,7 @@
     <script src="js/pasarUser.js"></script>
     <script>
         fetch('../api/v1.0/sesion').then(function (respuesta) {
+            $esCooperativaTecnico = false;
             $esCooperativa = false;
             if (respuesta.status != 200){
                 alert("No tienes acceso");
@@ -28,7 +29,7 @@
                                                                         <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
                                                                         <li class="breadcrumb-item active" aria-current="page"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
                                                                    `;
-
+                            $esCooperativa = true;
                         }
                         if (res[0][0] != 0 && res[0][3] != 0){
                             document.getElementById('mijas').innerHTML = `
@@ -40,7 +41,7 @@
                                                                                 <button class="btn btn-info mr-0 mr-md-2 disenyoSelector" type="button" data-toggle="collapse" data-target="#desplegableVincular" aria-expanded="false" aria-controls="desplegableVincular">
                                                                                     Vincular usuario
                                                                                 </button>`;
-                            $esCooperativa = true;
+                            $esCooperativaTecnico = true;
                         }
                         if (res[0][0] != 0 && res[0][3] == 0){
                             document.getElementById('mijas').innerHTML = `

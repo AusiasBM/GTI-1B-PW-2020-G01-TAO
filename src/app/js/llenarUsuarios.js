@@ -27,7 +27,6 @@ let ModeloTecnicoLlenarUsuario = {
         }else{
             if(this.filtros.cooperativa != 0) {
                 queryParams.push('cooperativa='+this.filtros.cooperativa);
-                console.log("hola")
             }
             if(this.filtros.usuario != 0) {
                 queryParams.push('usuario='+this.filtros.usuario);
@@ -64,9 +63,12 @@ let VistaSelectorTecnicoLlenarUsuario = {
                 if(usuario['numRol'] == 2){
                     this.cooperativas.push(usuario)
                 }
-                if ($esCooperativa){
+                if ($esCooperativaTecnico){
                     document.getElementById('btnEliminar'+ usuario.id).style.display = 'none';
                     document.getElementById('btnDesvincular' + usuario.id).style.display = 'block';
+                }
+                if ($esCooperativa){
+                    document.getElementById('btnEliminar'+ usuario.id).style.display = 'none';
                 }
             }
 
