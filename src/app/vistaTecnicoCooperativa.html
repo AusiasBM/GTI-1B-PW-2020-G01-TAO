@@ -127,12 +127,12 @@
                 <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-around">
 
                     <div class="d-flex justify-content-center align-items-center">
-                        <input type="checkbox" aria-label="Checkbox for following text input">
+                        <input type="checkbox" aria-label="Checkbox for following text input" onclick="cooperativas()">
                         <p class="pt-3 ml-1">Cooperativas</p>
                     </div>
 
                     <div class="d-flex justify-content-center align-items-center">
-                        <input type="checkbox" aria-label="Checkbox for following text input">
+                        <input type="checkbox" aria-label="Checkbox for following text input" onclick="usuarios()">
                         <p class="pt-3 ml-1">Usuarios</p>
                     </div>
 
@@ -161,6 +161,33 @@
     <script src="js/funcionesSeccionTecnico.js"></script>
     <script>
         anyadirUsuariosDesplegableCooperativa()
+
+        var cooperativaSeleccionada = false;
+        var usuarioSeleccionado = false;
+
+        function cooperativas() {
+
+            if (!cooperativaSeleccionada){
+                ControladorTecnicoLlenarUsuario.modelo.filtrar('cooperativa', 1)
+                cooperativaSeleccionada = true;
+            }else{
+                ControladorTecnicoLlenarUsuario.modelo.filtrar('cooperativa', 0)
+                cooperativaSeleccionada = false;
+            }
+        }
+
+        function usuarios() {
+
+            if (!usuarioSeleccionado){
+                ControladorTecnicoLlenarUsuario.modelo.filtrar('usuario', 1)
+                usuarioSeleccionado = true;
+            }else{
+                ControladorTecnicoLlenarUsuario.modelo.filtrar('usuario', 0)
+                usuarioSeleccionado = false;
+            }
+
+        }
+
     </script>
 
 

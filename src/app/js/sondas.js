@@ -19,12 +19,15 @@ let ModeloSoda = {
 
 let VistaSelectorSoda = {
     parcelas : [],
-    representar : function (j) {
+    todasSondas : [],
+    representar :function (j) {
         //console.log(j)
 
         let sondas = [];
         let parcelas = [];
         let idParcela = -1;
+
+        let todasPosiciones = [];
 
         j.forEach(function (posicion) {
             var marker = new google.maps.Marker({
@@ -33,6 +36,8 @@ let VistaSelectorSoda = {
                 animation: google.maps.Animation.DROP,
                 map: map
             });
+
+            todasPosiciones.push(posicion);
 
             marker.addListener('click', function () {
                 $('#nav-tab a[href="#nav-grafica"]').tab('show') // Select tab by name
@@ -63,6 +68,10 @@ let VistaSelectorSoda = {
         parcelas[idParcela] = sondas;
         this.parcelas = parcelas;
 
+        this.todasSondas = todasPosiciones;
+
+        ControladorMedicionesComparar.iniciar();
+        VistaSelectorMedicionesComparar.preparar();
         //console.log(this.parcelas);
     },
     visualizarSonda: function (indice){

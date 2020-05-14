@@ -87,6 +87,10 @@
                             Filtros
                         </button>
 
+                        <button class="col-7 col-md-2 btn btn-info mt-2 mt-md-0 mr-0 mr-md-2 disenyoSelector" type="button" data-toggle="collapse" data-target="#desplegableComparar" aria-expanded="false" aria-controls="desplegableComparar">
+                            Comparar
+                        </button>
+
                         <button class="col-7 col-md-2 btn btn-danger mt-2 mt-md-0" type="button" data-toggle="collapse" data-target="#desplegableAvisos" aria-expanded="false" aria-controls="desplegableAvisos">
                             AVISOS
                         </button>
@@ -99,12 +103,12 @@
                                 <div class="col-12 col-md-4 pt-2 d-flex flex-row">
                                     <p class="mr-2 mt-2">Fecha Inicio</p>
                                     <input id="selectorInicio" type="date" class="disenyoSelector mr-2"
-                                           onchange="ControladorMedic.modelo.filtrar('fechaIni', this.value)">
+                                           onchange="fechaInicio(this.value)">
                                 </div>
                                 <div class="col-12 col-md-4 pt-2 d-flex flex-row">
                                     <p class="pt-2 mr-2">Fecha Fin</p>
                                     <input id="selectorFin" type="date" class="disenyoSelector"
-                                           onchange="ControladorMedic.modelo.filtrar('fechaFin', this.value)">
+                                           onchange="fechaFinal(this.value)">
                                 </div>
                             </div>
                         </div>
@@ -112,6 +116,15 @@
                         <div class="collapse col-12" id="desplegableAvisos">
                             <div id="tostadas" class="col-12 card card-body row mt-2 d-flex flex-row justify-content-center"></div>
                         </div>
+
+                        <div class="collapse" id="desplegableComparar">
+                            <div class="d-flex flex-column flex-md-row justify-content-center">
+                                <p class="pt-2 mr-2">Seleccione una sonda para comparar</p>
+                                <select id="selectorSonda" class="disenyoSelector mr-2"
+                                        onchange="ControladorMedicionesComparar.modelo.filtrar('idSonda', this.value)"></select>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="row chart-container">
@@ -157,6 +170,8 @@
     <!-- Pinta las gráficas -->
     <script src="js/mediciones.js"></script>
     <!-- Pinta las gráficas -->
+    <script src="js/medicionComparar.js"></script>
+    <!-- Pinta las gráficas -->
     <script src="js/tecnicoUsuario.js"></script>
     <!-- Elimina la parcela -->
     <script src="js/funcionesSeccionTecnicoUsuario.js"></script>
@@ -184,10 +199,22 @@
 
             // En la siguiente linea logramos que la gráfica se ponga en 0
             ControladorMedic.modelo.filtrar('idSonda', -1 + "");
+
+
+        }
+
+        function fechaInicio(valor){
+            ControladorMedic.modelo.filtrar('fechaIni', valor)
+        }
+
+        function fechaFinal(valor){
+           ControladorMedic.modelo.filtrar('fechaFin', valor)
         }
 
         VistaSelectorTecnicoUsuario.preparar("adminstradorParcelas");
         ControladorTecnicoUsuario.iniciar();
+
+
 
         roles();
     </script>

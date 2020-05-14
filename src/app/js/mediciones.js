@@ -43,6 +43,7 @@ let ModeloMedic = {
 
 let VistaSelectorMedic = {
     grafica : {},
+    graficaTotal : {},
     totadas : {},
     datos : {
         labels: [],
@@ -124,6 +125,11 @@ let VistaSelectorMedic = {
 
         this.totadas.innerText = ``;
 
+        if (VistaSelectorMedicionesComparar.contenidoAnterior > 0){
+            VistaSelectorMedicionesComparar.grafica.data.datasets.splice(VistaSelectorMedicionesComparar.grafica.data.datasets.length-4, 4)
+            VistaSelectorMedicionesComparar.contenidoAnterior = 0;
+        }
+
         // recorrer humedad
         let horas = [];
         let medidasHum = [];
@@ -178,6 +184,8 @@ let VistaSelectorMedic = {
             data: this.datos,
             options: this.opciones
         });
+
+        this.graficaTotal = miGrafica;
     },
     crearTostada : function (tituloElemento, contenidoTostada) {
         this.totadas.innerHTML += `<div role="alert" aria-live="assertive" aria-atomic="true" class="toast mx-1 bg-danger" data-autohide="false">

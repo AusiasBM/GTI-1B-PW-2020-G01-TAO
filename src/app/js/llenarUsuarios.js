@@ -14,6 +14,32 @@ let ModeloTecnicoLlenarUsuario = {
             this.datos = datosJson;
             this.controlador.representar();
         });
+    },
+    filtros : {
+        cooperativa : 0,
+        usuario : 0,
+    },
+    filtrar : async function (parametro, valor) {
+        this.filtros[parametro] = valor;
+        let queryParams = [];
+        if((this.filtros.cooperativa == 0 && this.filtros.usuario == 0) || (this.filtros.cooperativa != 0 && this.filtros.usuario != 0)) {
+            this.cargar();
+        }else{
+            if(this.filtros.cooperativa != 0) {
+                queryParams.push('cooperativa='+this.filtros.cooperativa);
+                console.log("hola")
+            }
+            if(this.filtros.usuario != 0) {
+                queryParams.push('usuario='+this.filtros.usuario);
+            }
+            if(queryParams.length > 0) {
+                let query = queryParams.join('&');
+                await this.cargar(this.url + '?' + encodeURI(query));
+            } else {
+                this.cargar();
+            }
+        }
+
     }
 };
 
