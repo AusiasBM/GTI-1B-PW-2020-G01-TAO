@@ -81,15 +81,15 @@ let VistaSelectorTecnicoLlenarUsuario = {
     },
     creadorUsuario : function (nombreUsuario, nombreRol, id, numRol) {
         this.seccionParcelas.innerHTML += `<!-- Estilo cuando iniciamos la app -->
-                                            <div class="card col-md-3 m-3" id="${id}">
-                                                <div class="card-body">
-                                                    <div class="col-12 d-flex flex-column justify-content-between border-bottom mb-4">
+                                            <div class="card col-md-5 m-3 shadow p-3 mb-5 bg-white rounded" id="${id}">
+                                                <div class="card-body d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex flex-column justify-content-between">
                                                         <h4 class="card-title">${nombreUsuario}</h4>
                                                         <h4 class="card-title">Rol: ${nombreRol}</h4>
                                                     </div>
                                                     <div class="d-flex" id="botones-usuarios">
-                                                        <button type="button" class="btn btn-outline-info mr-auto" onclick="pasarAlUsuario('${nombreUsuario}', ${id}, ${numRol})">Acceder</button>
-                                                        <button type="button" class="btn btn-outline-danger" id="btnEliminar${id}" onclick="funcionesSeccionTecnico(${id})">Eliminar</button>
+                                                        <a class="mr-2" onclick="pasarAlUsuario('${nombreUsuario}', ${id}, ${numRol})" role="button" title="Añadir usuario"><img src="img/editarUsuario.svg" height="40" alt="boton-editar-usuario"></a>
+                                                        <a id="btnEliminar${id}" onclick="funcionesSeccionTecnico(${id})" role="button" title="Añadir usuario"><img src="img/eliminarUsuario.svg" height="40" alt="boton-anyadir-usuario"></a>
                                                         <button type="button" class="btn btn-outline-danger ml-2" style="display: none" id="btnDesvincular${id}" onclick="desvincularUsuarioCooperativa(${id})">Desvincular</button>
                                                     </div>
                                                 </div>

@@ -37,15 +37,15 @@ let VistaSelectorTecnicoUsuario = {
         }
     },
     creadorParcela : function (nombreParcela, color, idParcela) {
-        this.seccionParcelas.innerHTML += `<div class="card col-md-3 m-3" id="${idParcela}">
-                                                <div class="card-body">
-                                                    <div class="col-12 d-flex justify-content-between border-bottom mb-4">
+        this.seccionParcelas.innerHTML += `<div class="card col-md-5 m-3 shadow p-3 mb-5 bg-white rounded" id="${idParcela}">
+                                                <div class="card-body d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex flex-column justify-content-between">
                                                         <h4 class="card-title">${nombreParcela}</h4>
-                                                        <div class="col-2 colorParcelas" id="colorParcela" style="background-color: ${color}"></div>
+                                                        <div class="colorParcelas" id="colorParcela" style="background-color: ${color}"></div>
                                                     </div>
-                                                    <div class="d-flex">
-                                                        <button type="button" class="btn btn-outline-info mr-auto" onclick="modificarParcela(${idParcela})">Modificar</button>
-                                                        <button type="button" class="btn btn-outline-danger" id="${nombreParcela}" onclick="funcionesSeccionTecnicoUsuario(${idParcela})">Eliminar</button>
+                                                    <div class="d-flex justify-content-md-around">
+                                                        <a class="mr-2" onclick="modificarParcela(${idParcela})" role="button" title="Añadir usuario"><img src="img/editar.svg" height="35" alt="boton-editar-parcela"></a>
+                                                        <a id="${nombreParcela}" onclick="funcionesSeccionTecnicoUsuario(${idParcela})"role="button" title="Añadir usuario"><img src="img/eliminar.svg" height="40" alt="boton-eliminar-parcela"></a>
                                                     </div>
                                                 </div>
                                             </div>`;

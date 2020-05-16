@@ -42,6 +42,7 @@ h5{
 
 a{
     color: rgb(130, 0, 83);
+    cursor: pointer;
 }
 
 a:hover{
@@ -157,10 +158,9 @@ Ahora vamos a poner las modificaciones que se haran cuando la página cambie de 
     }
 }
 
-/* Aquí le decimos como será cuando la página pase de 1400px */
+/* Aquí le decimos como será cuando la página pase de 1400px
 @media (min-width: 1400px) {
 
-    /* Modificamos el texto para que sea más legible */
     h1{
         font-size: 140px;
     }
@@ -179,6 +179,6 @@ Ahora vamos a poner las modificaciones que se haran cuando la página cambie de 
         font-size: 25px;
         font-weight: 300;
     }
-
+*/
 
 }

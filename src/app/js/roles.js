@@ -9,6 +9,7 @@ function roles() {
             document.getElementById('mijas').innerHTML = `<ol class="breadcrumb">
                                                                         <li class="breadcrumb-item active" aria-current="page">Usuario ${datosJson[0]['nombre-usuario']}</li>
                                                                    </ol>`;
+            document.getElementById('usuarioMenu').innerHTML = `Usuario ${datosJson[0]['nombre-usuario']}`;
         }
 
         if (datosJson[0]['numRol-cooperativa'] != 0){
@@ -24,6 +25,7 @@ function roles() {
                                                                         <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Técnico</a></li>
                                                                         <li class="breadcrumb-item active" aria-current="page">Usuario ${datosJson[0]['nombre-usuario']}</li>
                                                                    </ol>`;
+            document.getElementById('usuarioMenu').innerHTML = `<a class="nav-item nav-link" id="nav-tecnico-tab" data-toggle="tab" href="#nav-tecnico" role="tab" aria-controls="nav-tecnico" aria-selected="false">Técnico</a>Usuario ${datosJson[0]['nombre-usuario']}`;
         }
 
         if (datosJson[0]['numRol-tecnico'] != 0 && datosJson[0]['numRol-cooperativa'] != 0){

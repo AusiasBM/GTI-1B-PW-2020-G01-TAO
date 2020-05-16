@@ -29,6 +29,7 @@
                                                                         <li class="breadcrumb-item"><a href="vistaTecnicoCooperativa.html">Cooperativa</a></li>
                                                                         <li class="breadcrumb-item active" aria-current="page"><a href="vistaTecnicoCooperativa.html">Todos los clientes</a></li>
                                                                    `;
+                            document.getElementById('usuarioMenuTecnico').innerHTML = `Cooperativa`;
                             $esCooperativa = true;
                         }
                         if (res[0][0] != 0 && res[0][3] != 0){
@@ -41,6 +42,7 @@
                                                                                 <button class="btn btn-info mr-0 mr-md-2 disenyoSelector" type="button" data-toggle="collapse" data-target="#desplegableVincular" aria-expanded="false" aria-controls="desplegableVincular">
                                                                                     Vincular usuario
                                                                                 </button>`;
+                            document.getElementById('usuarioMenuTecnico').innerHTML = `Cooperativa`;
                             $esCooperativaTecnico = true;
                         }
                         if (res[0][0] != 0 && res[0][3] == 0){
@@ -51,11 +53,14 @@
 
                             document.getElementById('opcionesTecnico').innerHTML += `
                                                                             <div class="d-flex">
-                                                                                <button class="btn btn-info mr-0 mr-md-2 disenyoSelector" type="button" data-toggle="collapse" data-target="#desplegableFiltros" aria-expanded="false" aria-controls="desplegableFiltros">
-                                                                                    Filtros
-                                                                                </button>
-                                                                                <a onclick="anyadirUsuario('seccionUsuarios')" role="button" title="Añadir usuario"><img src="img/anyadir.png" alt="boton-anyadir-usuario"></a>
+                                                                                <a class="mr-0 mr-md-3 " data-toggle="collapse" href="#desplegableFiltros" role="button" aria-expanded="false" aria-controls="desplegableFiltros">
+                                                                                    <img src="img/filtrar.svg" height="35" alt="boton-filtro-tecnico">
+                                                                                  </a>
+                                                                                <a onclick="anyadirUsuario('seccionUsuarios')" role="button" title="Añadir usuario"><img src="img/anyadirUsuario.svg" height="40" alt="boton-anyadir-usuario"></a>
                                                                             </div>`
+                            document.getElementById('usuarioMenuTecnico').innerHTML = `
+                                                                        <a onclick="quitarUsuario(2)" href="vistaTecnicoCooperativa.html">Técnico</a> / Todos los usuarios
+                                                                   `;
                         }
 
 
@@ -77,13 +82,18 @@
 
         <header class="row">
             <nav class="col navbar fixed-top navbar-expand-md navbar-light bg-light">
+
                 <a class="navbar-brand p-0" href="/index.html">
                     <img src="img/logoGTI.svg" width="130" alt="logotipo GTI">
                 </a>
 
+                <div id="usuarioMenuTecnico"></div>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                     <ul class="navbar-nav align-items-center">
@@ -119,15 +129,16 @@
             <!------------------------------------ TECNICO ---------------------------------------------------------->
             <div class="row my-3 mx-auto d-flex flex-row justify-content-between border-bottom pb-2" id="opcionesTecnico">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar Usuario" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nombre usuario" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
                 </form>
             </div>
 
             <div class="collapse" id="desplegableFiltros">
-                <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-around">
+                <p class="col-10 mr-3 pt-2 font-weight-bold border-bottom">Filtros</p>
+                <div class="d-flex justify-content-center justify-content-md-around border">
 
-                    <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-center align-items-center mr-4">
                         <input type="checkbox" aria-label="Checkbox for following text input" onclick="cooperativas()">
                         <p class="pt-3 ml-1">Cooperativas</p>
                     </div>
